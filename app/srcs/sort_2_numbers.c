@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   5_dll_utils.c                                      :+:      :+:    :+:   */
+/*   sort_2_numbers.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/09 06:51:40 by acapela-         ###   ########.fr       */
+/*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
+/*   Updated: 2022/04/14 22:09:37 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int prepare_to_sort(int argc, char **argv)
+#include "push_swap.h"
+
+void sort_2_numbers(t_push_swap *push_swap)
 {
-
-
+    if (push_swap)
+    {
+    }
 }

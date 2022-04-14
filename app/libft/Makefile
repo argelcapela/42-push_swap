@@ -6,7 +6,7 @@
 #    By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 01:45:50 by acapela-          #+#    #+#              #
-#    Updated: 2022/04/06 22:51:32 by acapela-         ###   ########.fr        #
+#    Updated: 2022/04/11 16:41:49 by acapela-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,6 +96,8 @@ SRCS +=		ft_str_replace_all.c     \
 			ft_replace_all_matrix.c \
 			ft_first_ocurrence.c \
 			ft_last_ocurrence.c 
+
+SRCS +=		ft_atos.c
 			
 HEADER =	libft.h
 

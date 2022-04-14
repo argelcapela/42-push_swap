@@ -6,7 +6,7 @@
 #    By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 01:45:50 by acapela-          #+#    #+#              #
-#    Updated: 2022/04/09 04:01:19 by acapela-         ###   ########.fr        #
+#    Updated: 2022/04/14 18:27:01 by acapela-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,23 +18,39 @@ HEADER =		srcs/push_swap.h
 
 HEADER_B = 		srcs_b/push_swap_b.h
 
+VPATH =			srcs/
 
 SRCS =			1_main.c \
 				2_push_swap.c \
 				3_identify_errors.c \
-				4_prepare_to_sort.c
+				4_init_push_swap.c \
+				5_execute_push_swap.c
+
+SRCS +=			pa.c \
+				pb.c \
+				ra.c \
+				rb.c \
+				rr.c \
+				rra.c \
+				rrb.c \
+				rrr.c \
+				sa.c \
+				sb.c \
+				ss.c 
+				
+SRCS +=			8_push_swap_utils.c 
 
 SRCS_B =		
 
 
-OBJS =          $(SRCS:%.c=srcs/.objs/%.o)
+OBJS =          $(SRCS:%.c=%.o)
 
 OBJS_B =		$(SRCS_B:%.c=srcs_b/.objs/%.o)
 
 OBJS_FOLDER =   srcs/.objs
 
 
-LIBFT.A =       libs/libft/libft.a
+LIBFT.A =       libft/libft.a
 
 
 CC =            clang
@@ -46,30 +62,18 @@ AR =             ar -rcs
 
 all:			$(NAME)
 
-$(NAME):		$(OBJS_FOLDER) $(OBJS) $(HEADER)
-				$(MAKE) -C libs/libft
+$(NAME):		$(OBJS) $(HEADER)
+				$(MAKE) -C libft
 				$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT.A)  -I./srcs
+				@mkdir -p $(OBJS_FOLDER)
+				mv *.o srcs/.objs
 				@echo "\033[1;32m\nMANDATORY COMPILED SUCCESFULY!\033[0m\n\n"
 
-srcs/.objs/%.o: 		srcs/%.c $(HEADER)
-				$(CC) $(CFLAGS) -c $<	-o $@
-
-
-bonus:			$(NAME_B)
-
-$(NAME_B):		$(OBJS_FOLDER) $(OBJS_B) $(HEADER_B)
-				$(MAKE) -C libs/libft
-				$(CC) $(CFLAGS) -o $(NAME_B) $(OBJS_B) $(LIBFT.A)  -I./srcs_b
-				@echo "\033[1;32m\nBONUS COMPILED SUCCESFULY!\033[0m\n\n"
-
-srcs_b/.objs/%.o: 		srcs_b/%.c $(HEADER_B)
-				$(CC) $(CFLAGS) -c $<	-o $@
-
-$(OBJS_FOLDER):
-				@mkdir -p $(OBJS_FOLDER)
+%.o: 			%.c $(HEADER)
+				$(CC) $(CFLAGS) -c $<	-o $@		
 
 clean:
-				rm -rfd $(OBJS_B) $(OBJS) .objs leak.txt
+				rm -rfd srcs/.objs
 				
 fclean:			
 				@$(MAKE) clean 2>/dev/null || true

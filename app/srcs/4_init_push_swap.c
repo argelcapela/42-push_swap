@@ -1,61 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_prepare_to_sort.c                                :+:      :+:    :+:   */
+/*   4_init_push_swap.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/09 07:04:52 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/14 22:03:22 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/******* JUST FOR TEST ********/
-
-// static int  print_stack_vertical(t_dll *f_i_dll)
-// {
-//     t_dll   *tmp;
-
-//     tmp = f_i_dll;
-//     ft_printf("=== STACK A ===\n");
-//     while (tmp->next_item != NULL)
-//     {
-//         ft_printf("%d\n", tmp->value);
-//         tmp = tmp->next_item;
-//     }
-//     ft_printf("%d\n", tmp->value);
-//     ft_printf("===============\n");
-//     return (0);
-// }
-
-
-static int  print_stack_horizontal(t_dll *f_i_dll)
-{
-    t_dll   *tmp;
-
-    tmp = f_i_dll;
-    ft_printf("STACK A:\n");
-    while (tmp->next_item != NULL)
-    {
-        ft_printf("%d ", tmp->value);
-        tmp = tmp->next_item;
-    }
-    ft_printf("%d\n", tmp->value);
-    return (0);
-}
-
-/*********************************************************/
 
 static int fill_stack_a(t_push_swap *push_swap)
 {
     int     i;
     t_dll   *tmp_dll;
     
+    if (push_swap->argc == 1)
+    {
+        push_swap->stack_a = NULL;
+        return (0);
+    }
     i = 1;
-    push_swap->f_i_stack_a = (t_dll *) malloc(sizeof(t_dll));
-    tmp_dll = push_swap->f_i_stack_a;
+    push_swap->stack_a = (t_dll *) malloc(sizeof(t_dll));
+    tmp_dll = push_swap->stack_a;
     tmp_dll->previous_item = NULL;
     tmp_dll->value = atoi(push_swap->argv[i]);
     while (++i < push_swap->argc)
@@ -69,9 +38,9 @@ static int fill_stack_a(t_push_swap *push_swap)
     return (0);
 }
 
-int prepare_to_sort(t_push_swap *push_swap)
+int init_push_swap(t_push_swap *push_swap)
 {
+    push_swap->n = push_swap->argc - 1;
     fill_stack_a(push_swap);
-    print_stack_horizontal(push_swap->f_i_stack_a);
     return (0);
 }

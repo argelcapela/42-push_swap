@@ -6,7 +6,7 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/09 07:03:49 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/14 22:17:17 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 # define PUSH_SWAP_H
 
 /*#################################################
-#  						  						  #
-#   				libs	  					  #
-#						  						  #
+#  						  						           #
+#   				libs	  					              #
+#						  						              #
 #################################################*/
 
 // malloc, free
@@ -26,18 +26,22 @@
 # include <unistd.h>
 
 // libft, get_next_line, ft_printf, etc..
-# include "../libs/libft/libft.h"
+# include "../libft/libft.h"
 
 /*#################################################
-#  						  						  #
-#   				macros	  					  #
-#						  						  #
+#  						  						           #
+#   				macros	  					           #
+#						  						              #
 #################################################*/
 
+# define INT_MAX 2147483647
+
+# define INT_MIN 2147483648
+
 /*#################################################
-#  						  						  #
-#   				structs	  					  #
-#						  						  #
+#  						  						           #
+#   				structs	  				              #
+#						  						              #
 #################################################*/
 
 /* 
@@ -58,33 +62,97 @@ typedef struct s_push_swap
 {
    int            argc;
    char**         argv;
-	struct s_dll   *f_i_stack_a;
-   struct s_dll   *f_i_stack_b;
+   int            n;
+	struct s_dll   *stack_a;
+   struct s_dll   *stack_b;
 }	t_push_swap;
 
-
 /*#################################################
-#  						  						  #
-#   			  2_push_swap.c 				  #
-#						  						  #
+#  						  						           #
+#   			     2_push_swap.c   		           #
+#						  						              #
 #################################################*/
 
 int		push_swap(int argc, char **argv);
 
 /*#################################################
-#  						  						  #
-#   			  3_ 				              #
-#						  						  #
+#  						  						           #
+#   		     3_identify_errors.c	              #
+#						  						              #
 #################################################*/
 
 int	   identify_erros(int argc, char **argv);
 
 /*#################################################
-#  						  						  #
-#   			  4_             				  #
-#						  						  #
+#  						  						           #
+#   		     4_init_push_swap.c	   	           #
+#						  						              #
 #################################################*/
 
-int      prepare_to_sort(t_push_swap *push_swap);
+int      init_push_swap(t_push_swap *push_swap);
+
+/*#################################################
+#  						  						           #
+#   		    5_execute_push_swap.c  	           #
+#						  						              #
+#################################################*/
+
+int      execute_push_swap(t_push_swap *push_swap);
+
+/*#################################################
+#  						  						           #
+#   			  6_basic_movements			           #
+#						  						              #
+#################################################*/
+
+void     ra(t_push_swap *push_swap);
+
+void     rb(t_push_swap *push_swap);
+
+void     rr(t_push_swap *push_swap);
+
+void     rra(t_push_swap *push_swap);
+
+void     rrb(t_push_swap *push_swap);
+
+void     rrr(t_push_swap *push_swap);
+
+void     sa(t_push_swap *push_swap);
+
+void     sb(t_push_swap *push_swap);
+
+void     ss(t_push_swap *push_swap);
+
+void     pa(t_push_swap *push_swap);
+
+void     pb(t_push_swap *push_swap);
+
+/*#################################################
+#  						  						           #
+#      7_sort_with_least_amount_of_movements      #
+#						  						              #
+#################################################*/
+
+void     sort_2_numbers(t_push_swap *push_swap);
+
+void     sort_3_numbers(t_push_swap *push_swap);
+
+void     sort_5_numbers(t_push_swap *push_swap);
+
+void     sort_100_numbers(t_push_swap *push_swap);
+
+void     sort_more_than_100_numbers(t_push_swap *push_swap);
+
+/*#################################################
+#  						  						           #
+#             8_push_swap_utils.c		           #
+#						  						              #
+#################################################*/
+
+int      print_stack_vertical(t_dll *f_i_dll);
+
+int      print_stack_horizontal(t_dll *stack, char *title);
+
+int      stack_length(t_dll *stack);
 
 #endif
