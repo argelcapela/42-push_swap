@@ -6,7 +6,7 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/13 15:07:33 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:57:28 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	push_swap(int argc, char **argv)
     
     if (identify_erros(argc, argv) == 1)
 	{
-		ft_putstr_fd("\033[31;1mError\n\033[0m", 2);
+		ft_putstr_fd("Error", 2);
         exit(1);
 	}
 	else if (identify_erros(argc, argv) == 2)

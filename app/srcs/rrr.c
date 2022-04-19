@@ -6,7 +6,7 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/14 21:16:44 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/16 17:34:40 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void rrr(t_push_swap *push_swap)
 {
     rra(push_swap);
     rrb(push_swap);
-    ft_printf("rrr");
+    ft_printf("rrr\n");
 }

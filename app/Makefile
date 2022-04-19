@@ -6,7 +6,7 @@
 #    By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 01:45:50 by acapela-          #+#    #+#              #
-#    Updated: 2022/04/14 18:27:01 by acapela-         ###   ########.fr        #
+#    Updated: 2022/04/18 17:54:12 by acapela-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,16 @@ SRCS +=			pa.c \
 				sa.c \
 				sb.c \
 				ss.c 
-				
-SRCS +=			8_push_swap_utils.c 
+
+SRCS +=			sort_2_numbers.c \
+				sort_3_numbers.c \
+				sort_5_numbers.c \
+				sort_100_numbers.c \
+				sort_500_numbers.c \
+				sort_more_than_500_numbers.c
+
+SRCS +=			8_push_swap_utils_1.c \
+				8_push_swap_utils_2.c
 
 SRCS_B =		
 

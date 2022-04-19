@@ -6,7 +6,7 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/14 22:17:17 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:51:11 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,8 @@ void     pb(t_push_swap *push_swap);
 
 void     sort_2_numbers(t_push_swap *push_swap);
 
+void     sort_2_numbers_b(t_push_swap *push_swap);
+
 void     sort_3_numbers(t_push_swap *push_swap);
 
 void     sort_5_numbers(t_push_swap *push_swap);
@@ -145,14 +147,26 @@ void     sort_more_than_100_numbers(t_push_swap *push_swap);
 
 /*#################################################
 #  						  						           #
-#             8_push_swap_utils.c		           #
+#             8_push_swap_utils_1.c		           #
 #						  						              #
 #################################################*/
 
-int      print_stack_vertical(t_dll *f_i_dll);
+int		print_stack_vertical(t_dll *f_i_dll);
 
-int      print_stack_horizontal(t_dll *stack, char *title);
+int		print_stack_horizontal(t_dll *stack, char *title);
 
-int      stack_length(t_dll *stack);
+int		stack_length(t_dll *stack);
+
+t_dll	   *get_last_item(t_dll *stack);
+
+void	   reverse_stack(t_dll *stack, t_push_swap *push_swap);
+
+/*#################################################
+#  						  						           #
+#             8_push_swap_utils_2.c		           #
+#						  						              #
+#################################################*/
+
+int      stack_already_is_sorted(t_push_swap *push_swap);
 
 #endif
