@@ -12,39 +12,6 @@
 
 #include <push_swap.h>
 
-int		print_stack_vertical(t_dll *f_i_dll)
-{
-    t_dll   *tmp;
-
-    tmp = f_i_dll;
-    ft_printf("=== STACK A ===\n");
-    while (tmp->next_item != NULL)
-    {
-        ft_printf("%d\n", tmp->value);
-        tmp = tmp->next_item;
-    }
-    ft_printf("%d\n", tmp->value);
-    ft_printf("===============\n");
-    return (0);
-}
-
-int		print_stack_horizontal(t_dll *stack, char *title)
-{
-    t_dll   *tmp;
-
-    tmp = stack;
-    ft_printf("%s:\n", title);
-    if (stack == NULL)
-        return (0);
-    while (tmp->next_item != NULL)
-    {
-        ft_printf("%d ", tmp->value);
-        tmp = tmp->next_item;
-    }
-    ft_printf("%d\n", tmp->value);
-    return (0);
-}
-
 int		stack_length(t_dll *stack)
 {
     int i;
@@ -76,3 +43,18 @@ void	reverse_stack(t_dll *stack, t_push_swap *push_swap)
 		ra(push_swap);
 }
 
+static t_dll *what_is_the_smallest (t_dll *stack)
+{
+	t_dll	*smallest;
+	t_dll	*tmp;
+
+	tmp = stack;
+	smallest = stack;
+	while (tmp->next_item != NULL)
+	{
+		tmp = tmp->next_item;
+		if (tmp->value < smallest->value)
+			smallest = tmp;
+	}
+	return (smallest);
+}
