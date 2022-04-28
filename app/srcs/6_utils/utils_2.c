@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_push_swap.c                                      :+:      :+:    :+:   */
+/*   8_push_swap_utils_2.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/18 16:57:28 by acapela-         ###   ########.fr       */
+/*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
+/*   Updated: 2022/04/18 17:36:00 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-
-int	push_swap(int argc, char **argv)
+int stack_already_is_sorted(t_push_swap *push_swap)
 {
-    t_push_swap *push_swap;
+    int     tmp;
+    t_dll   *stack;
 
-    if (identify_erros(argc, argv) == 1)
-	{
-		ft_putstr_fd("Error", 2);
-        exit(1);
-	}
-	else if (identify_erros(argc, argv) == 2)
-		exit(1);
-    push_swap = (t_push_swap *) malloc(sizeof(t_push_swap));
-    push_swap->argc = argc;
-    push_swap->argv = argv;
-    init_push_swap(push_swap);
-    return (execute_push_swap(push_swap));
+    stack = push_swap->stack_a;
+    tmp = stack->value;
+    while (stack->next_item != NULL)
+    {
+        stack = stack->next_item;
+        if (stack->value < tmp)
+            return (0);
+        tmp = stack->value;
+    }
+    return (1);
 }

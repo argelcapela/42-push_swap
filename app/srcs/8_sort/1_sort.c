@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_push_swap.c                                      :+:      :+:    :+:   */
+/*   5_execute_push_swap.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/18 16:57:28 by acapela-         ###   ########.fr       */
+/*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
+/*   Updated: 2022/04/18 17:55:25 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-
-int	push_swap(int argc, char **argv)
+static void sort(t_push_swap *push_swap)
 {
-    t_push_swap *push_swap;
-
-    if (identify_erros(argc, argv) == 1)
-	{
-		ft_putstr_fd("Error", 2);
-        exit(1);
-	}
-	else if (identify_erros(argc, argv) == 2)
-		exit(1);
-    push_swap = (t_push_swap *) malloc(sizeof(t_push_swap));
-    push_swap->argc = argc;
-    push_swap->argv = argv;
-    init_push_swap(push_swap);
-    return (execute_push_swap(push_swap));
+    if (stack_already_is_sorted(push_swap) == 1)
+        return ;
+    if (push_swap->n == 2)
+        sort_2_numbers(push_swap);
+    else if (push_swap->n == 3)
+        sort_3_numbers(push_swap);
+    else if (push_swap->n > 3 && push_swap->n <= 5)
+        sort_5_numbers(push_swap);
+    else
+        sort_more_than_5_numbers(push_swap);
 }

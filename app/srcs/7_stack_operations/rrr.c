@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   2_push_swap.c                                      :+:      :+:    :+:   */
+/*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/18 16:57:28 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/16 17:34:40 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
+/* rrr: - Executes ra and rb at the same time. */
 
-int	push_swap(int argc, char **argv)
+void rrr(t_push_swap *push_swap)
 {
-    t_push_swap *push_swap;
-
-    if (identify_erros(argc, argv) == 1)
-	{
-		ft_putstr_fd("Error", 2);
-        exit(1);
-	}
-	else if (identify_erros(argc, argv) == 2)
-		exit(1);
-    push_swap = (t_push_swap *) malloc(sizeof(t_push_swap));
-    push_swap->argc = argc;
-    push_swap->argv = argv;
-    init_push_swap(push_swap);
-    return (execute_push_swap(push_swap));
+    rra(push_swap);
+    rrb(push_swap);
+    ft_printf("rrr\n");
 }

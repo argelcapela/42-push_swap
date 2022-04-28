@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 /*
 
@@ -95,12 +95,12 @@ static int check_if_value_overcome_limit(char **argv)
 }
 
 int identify_erros(int argc, char **argv)
-{   
+{
     if (argc <= 1)
         return (2);
 	else if (check_if_value_is_not_integer(argv) == 1)
 		return (1);
-    else if (check_if_there_is_value_duplication(argc, argv) == 1)      
+    else if (check_if_there_is_value_duplication(argc, argv) == 1)
         return (1);
 	else if (check_if_value_overcome_limit(argv) == 1)
 		return (1);

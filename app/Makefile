@@ -14,9 +14,9 @@ NAME =			push_swap
 
 NAME_B =		push_swap_b
 
-HEADER =		srcs/push_swap.h
+HEADER =		./includes/push_swap.h
 
-HEADER_B = 		srcs_b/push_swap_b.h
+HEADER_B = 		./includes/push_swap_b.h
 
 VPATH =			srcs/
 
@@ -26,29 +26,28 @@ SRCS =			1_main.c \
 				4_init_push_swap.c \
 				5_execute_push_swap.c
 
-SRCS +=			pa.c \
-				pb.c \
-				ra.c \
-				rb.c \
-				rr.c \
-				rra.c \
-				rrb.c \
-				rrr.c \
-				sa.c \
-				sb.c \
-				ss.c 
+SRCS +=			6_utils/utils_1.c \
+				6_utils/utils_2.c
 
-SRCS +=			sort_2_numbers.c \
-				sort_3_numbers.c \
-				sort_5_numbers.c \
-				sort_100_numbers.c \
-				sort_500_numbers.c \
-				sort_more_than_500_numbers.c
+SRCS +=			7_stack_operations/pa.c \
+				7_stack_operations/pb.c \
+				7_stack_operations/ra.c \
+				7_stack_operations/rb.c \
+				7_stack_operations/rr.c \
+				7_stack_operations/rra.c \
+				7_stack_operations/rrb.c \
+				7_stack_operations/rrr.c \
+				7_stack_operations/sa.c \
+				7_stack_operations/sb.c \
+				7_stack_operations/ss.c
 
-SRCS +=			8_push_swap_utils_1.c \
-				8_push_swap_utils_2.c
+SRCS +=			8_sort/sort_2_numbers.c \
+				8_sort/sort_3_numbers.c \
+				8_sort/sort_5_numbers.c \
+				8_sort/sort_more_than_5_numbers.c
 
-SRCS_B =		
+
+SRCS_B =
 
 
 OBJS =          $(SRCS:%.c=%.o)
@@ -58,7 +57,7 @@ OBJS_B =		$(SRCS_B:%.c=srcs_b/.objs/%.o)
 OBJS_FOLDER =   srcs/.objs
 
 
-LIBFT.A =       libft/libft.a
+LIBFT.A =       libs/libft/libft.a
 
 
 CC =            clang
@@ -72,18 +71,18 @@ all:			$(NAME)
 
 $(NAME):		$(OBJS) $(HEADER)
 				$(MAKE) -C libft
-				$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT.A)  -I./srcs
+				$(CC) $(CFLAGS) -I./includes/push_swap.h -o $(NAME) $(OBJS) $(LIBFT.A)
 				@mkdir -p $(OBJS_FOLDER)
 				mv *.o srcs/.objs
 				@echo "\033[1;32m\nMANDATORY COMPILED SUCCESFULY!\033[0m\n\n"
 
 %.o: 			%.c $(HEADER)
-				$(CC) $(CFLAGS) -c $<	-o $@		
+				$(CC) $(CFLAGS) -c $<	-o $@
 
 clean:
 				rm -rfd srcs/.objs
-				
-fclean:			
+
+fclean:
 				@$(MAKE) clean 2>/dev/null || true
 				@$(MAKE) fclean -C libs/libft 2>/dev/null || true
 				@rm -rfd push_swap 2>/dev/null || true
@@ -93,13 +92,13 @@ fclean_bonus:
 				@$(MAKE) clean 2>/dev/null || true
 				@$(MAKE) fclean -C libs/libft 2>/dev/null || true
 				@rm -rfd  2>/dev/null || true
-				@echo "\033[1;32m\nFCLEAN BONUS EXECUTED SUCCESFULY!\033[0m\n\n"	
+				@echo "\033[1;32m\nFCLEAN BONUS EXECUTED SUCCESFULY!\033[0m\n\n"
 
 re:				fclean all
 
 re_bonus:		fclean_bonus bonus
 
-n:			
+n:
 				norminette *
 
 .PHONY:			clean fclean fclean_bonus re re_bonus n

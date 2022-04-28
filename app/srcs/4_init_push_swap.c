@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include <push_swap.h>
 
 static int fill_stack_a(t_push_swap *push_swap)
 {
     int     i;
     t_dll   *tmp_dll;
-    
+
     if (push_swap->argc == 1)
     {
         push_swap->stack_a = NULL;
