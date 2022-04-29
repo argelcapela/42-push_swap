@@ -52,19 +52,18 @@ SRCS_B =
 
 OBJS =          $(SRCS:%.c=%.o)
 
-OBJS_B =		$(SRCS_B:%.c=srcs_b/.objs/%.o)
-
 OBJS_FOLDER =   srcs/.objs
 
 
 LIBFT.A =       libs/libft/libft.a
 
+LIBFT_FOLDER =  libs/libft
 
 CC =            clang
 
 CFLAGS =		-Wall -Wextra -Werror -ggdb3
 
-INCLUDES = ./includes
+INCLUDES = 		./includes
 
 AR =             ar -rcs
 
@@ -72,17 +71,16 @@ AR =             ar -rcs
 all:			$(NAME)
 
 $(NAME):		$(OBJS) $(HEADER)
-				$(MAKE) -C libft
+				$(MAKE) -C $(LIBFT_FOLDER)
 				$(CC) $(CFLAGS)  -o $(NAME) $(OBJS) $(LIBFT.A)
 				@mkdir -p $(OBJS_FOLDER)
-				mv *.o srcs/.objs
 				@echo "\033[1;32m\nMANDATORY COMPILED SUCCESFULY!\033[0m\n\n"
 
 %.o: 			%.c $(HEADER)
 				$(CC) -I$(INCLUDES) $(CFLAGS) -c $<	-o $@
 
 clean:
-				rm -rfd srcs/.objs
+				rm -rfd $(OBJS_FOLDER)
 
 fclean:
 				@$(MAKE) clean 2>/dev/null || true

@@ -14,5 +14,7 @@
 
 void sort_more_than_5_numbers(t_push_swap *push_swap)
 {
-
+	if (push_swap)
+	{
+	}
 }
