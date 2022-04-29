@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/18 16:51:11 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/29 18:56:59 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,12 @@
 #						  						              #
 #################################################*/
 
-/*
-   dll means: 'D'ouble 'L'inked 'L'ist
-   a data structure used here on push swap
-   to hold the values of some stack and
-   after work with them in an eficient way.
-*/
-
+// linked list
 typedef struct s_dll
 {
-	struct s_dll	*previous_item;
-	struct s_dll	*next_item;
+	struct s_dll	*previous;
+	struct s_dll	*next;
+   int            index;
 	int				value;
 }	t_dll;
 
@@ -62,9 +57,18 @@ typedef struct s_push_swap
 {
    int            argc;
    char**         argv;
-   int            n;
 	struct s_dll   *stack_a;
    struct s_dll   *stack_b;
+   int            stack_length;
+   int            group_amount;
+   int            group_size;
+   int            current_group;
+   int            biggest_node_index;
+
+   struct s_dll   *temp;
+   int            big;
+   int            action_count;
+   int            print;
 }	t_push_swap;
 
 /*#################################################
@@ -89,7 +93,7 @@ int	   identify_erros(int argc, char **argv);
 #						  						              #
 #################################################*/
 
-int      init_push_swap(t_push_swap *push_swap);
+int      init_push_swap(t_push_swap *ps);
 
 /*#################################################
 #  						  						           #
@@ -97,7 +101,7 @@ int      init_push_swap(t_push_swap *push_swap);
 #						  						              #
 #################################################*/
 
-int      execute_push_swap(t_push_swap *push_swap);
+int      execute_push_swap(t_push_swap *ps);
 
 /*#################################################
 #  						  						           #
@@ -105,27 +109,27 @@ int      execute_push_swap(t_push_swap *push_swap);
 #						  						              #
 #################################################*/
 
-void     ra(t_push_swap *push_swap);
+void     ra(t_push_swap *ps);
 
-void     rb(t_push_swap *push_swap);
+void     rb(t_push_swap *ps);
 
-void     rr(t_push_swap *push_swap);
+void     rr(t_push_swap *ps);
 
-void     rra(t_push_swap *push_swap);
+void     rra(t_push_swap *ps);
 
-void     rrb(t_push_swap *push_swap);
+void     rrb(t_push_swap *ps);
 
-void     rrr(t_push_swap *push_swap);
+void     rrr(t_push_swap *ps);
 
-void     sa(t_push_swap *push_swap);
+void     sa(t_push_swap *ps);
 
-void     sb(t_push_swap *push_swap);
+void     sb(t_push_swap *ps);
 
-void     ss(t_push_swap *push_swap);
+void     ss(t_push_swap *ps);
 
-void     pa(t_push_swap *push_swap);
+void     pa(t_push_swap *ps);
 
-void     pb(t_push_swap *push_swap);
+void     pb(t_push_swap *ps);
 
 /*#################################################
 #  						  						           #
@@ -133,17 +137,17 @@ void     pb(t_push_swap *push_swap);
 #						  						              #
 #################################################*/
 
-void     sort(t_push_swap *push_swap);
+void     sort(t_push_swap *ps);
 
-void     sort_2_numbers(t_push_swap *push_swap);
+void     sort_2_numbers(t_push_swap *ps);
 
-void     sort_2_numbers_b(t_push_swap *push_swap);
+void     sort_2_numbers_b(t_push_swap *ps);
 
-void     sort_3_numbers(t_push_swap *push_swap);
+void     sort_3_numbers(t_push_swap *ps);
 
-void     sort_5_numbers(t_push_swap *push_swap);
+void     sort_5_numbers(t_push_swap *ps);
 
-void     sort_more_than_5_numbers(t_push_swap *push_swap);
+void     sort_more_than_5_numbers(t_push_swap *ps);
 
 /*#################################################
 #  						  						           #
@@ -151,15 +155,11 @@ void     sort_more_than_5_numbers(t_push_swap *push_swap);
 #						  						              #
 #################################################*/
 
-int		print_stack_vertical(t_dll *f_i_dll);
-
-int		print_stack_horizontal(t_dll *stack, char *title);
-
 int		stack_length(t_dll *stack);
 
-t_dll	   *get_last_item(t_dll *stack);
+t_dll	   *last_item(t_dll *stack);
 
-void	   reverse_stack(t_dll *stack, t_push_swap *push_swap);
+int      is_sorted(t_dll *stack);
 
 /*#################################################
 #  						  						           #
@@ -167,6 +167,10 @@ void	   reverse_stack(t_dll *stack, t_push_swap *push_swap);
 #						  						              #
 #################################################*/
 
-int      stack_already_is_sorted(t_push_swap *push_swap);
+
+
+int		print_stack_vertical(t_dll *f_i_dll);
+
+int		print_stack_horizontal(t_dll *stack, char *title);
 
 #endif

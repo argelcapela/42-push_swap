@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   5_execute_push_swap.c                              :+:      :+:    :+:   */
+/*   3_sort.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/18 17:55:25 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:57:52 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void sort(t_push_swap *push_swap)
+void sort(t_push_swap *ps)
 {
-    if (stack_already_is_sorted(push_swap) == 1)
+    if (is_sorted(ps->stack_a) == 1)
         return ;
-    if (push_swap->n == 2)
-        sort_2_numbers(push_swap);
-    else if (push_swap->n == 3)
-        sort_3_numbers(push_swap);
-    else if (push_swap->n > 3 && push_swap->n <= 5)
-        sort_5_numbers(push_swap);
+    if (ps->stack_length == 2)
+        sort_2_numbers(ps);
+    else if (ps->stack_length == 3)
+        sort_3_numbers(ps);
+    else if (ps->stack_length > 3 && ps->stack_length <= 5)
+        sort_5_numbers(ps);
     else
-        sort_more_than_5_numbers(push_swap);
+        sort_more_than_5_numbers(ps);
 }

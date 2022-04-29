@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ss.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/14 21:54:20 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/29 11:16:33 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /* ss: Exeutes sa and sb at the same time. */
 
-void ss(t_push_swap *push_swap)
+void ss(t_push_swap *ps)
 {
-    sa(push_swap);
-    sb(push_swap);
+    sa(ps);
+    sb(ps);
     ft_printf("ss\n");
 }

@@ -1,46 +1,95 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_init_push_swap.c                                 :+:      :+:    :+:   */
+/*   4_init_ps.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/14 22:03:22 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/29 11:17:29 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static int fill_stack_a(t_push_swap *push_swap)
+static int fill_stack_a(t_push_swap *ps)
 {
-    int     i;
-    t_dll   *tmp_dll;
+	int     i;
+	t_dll   *tmp_dll;
 
-    if (push_swap->argc == 1)
-    {
-        push_swap->stack_a = NULL;
-        return (0);
-    }
-    i = 1;
-    push_swap->stack_a = (t_dll *) malloc(sizeof(t_dll));
-    tmp_dll = push_swap->stack_a;
-    tmp_dll->previous_item = NULL;
-    tmp_dll->value = atoi(push_swap->argv[i]);
-    while (++i < push_swap->argc)
-    {
-        tmp_dll->next_item = (t_dll *) malloc(sizeof(t_dll));
-        tmp_dll->next_item->previous_item = tmp_dll;
-        tmp_dll = tmp_dll->next_item;
-        tmp_dll->value = atoi(push_swap->argv[i]);
-        tmp_dll->next_item = NULL;
-    }
-    return (0);
+	if (ps->argc == 1)
+	{
+		ps->stack_a = NULL;
+		return (0);
+	}
+	i = 1;
+	ps->stack_a = (t_dll *) malloc(sizeof(t_dll));
+	tmp_dll = ps->stack_a;
+	tmp_dll->previous = NULL;
+	tmp_dll->value = atoi(ps->argv[i]);
+	tmp_dll->index = -1;
+	while (++i < ps->argc)
+	{
+		tmp_dll->next = (t_dll *) malloc(sizeof(t_dll));
+		tmp_dll->next->previous = tmp_dll;
+		tmp_dll = tmp_dll->next;
+		tmp_dll->value = atoi(ps->argv[i]);
+		tmp_dll->next = NULL;
+		tmp_dll->index = -1;
+	}
+	return (0);
 }
 
-int init_push_swap(t_push_swap *push_swap)
+
+/* Loop all stack_a searching the node with the smallest value that
+don't have an index yet. This node is returned and receive an index. */
+static t_dll *get_next_smallest(t_dll **stack)
 {
-    push_swap->n = push_swap->argc - 1;
-    fill_stack_a(push_swap);
-    return (0);
+	int     has_index;
+	t_dll   *smallest;
+	t_dll   *head;
+
+	has_index = 0;
+	smallest = NULL;
+	head = *stack;
+	while (head)
+	{
+		if ((head->index == -1) && (has_index == 0
+		|| head->value < smallest->value))
+		{
+			smallest = head;
+			has_index = 1;
+		}
+		head = head->next;
+	}
+	return (smallest);
+}
+
+/* fill stack_a with sorted indexes starting from smallest
+ending on the biggest. Function end when all the nodes
+receive an index different of -1. */
+static void sort_indexes(t_dll **stack, t_push_swap *ps)
+{
+	t_dll   *head;
+	int     index;
+
+	index = 0;
+	head = get_next_smallest(stack);
+	while (head)
+	{
+		head->index = index++;
+		ps->biggest_node_index = head->index;
+		head = get_next_smallest(stack);
+	}
+}
+
+
+
+
+int init_push_swap(t_push_swap *ps)
+{
+	ps->stack_length = ps->argc - 1;
+	fill_stack_a(ps);
+	sort_indexes(&(ps->stack_a), ps);
+	return (0);
 }

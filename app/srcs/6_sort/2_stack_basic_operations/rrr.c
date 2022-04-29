@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rrr.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/16 17:34:40 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/04/29 11:16:12 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 /* rrr: - Executes ra and rb at the same time. */
 
-void rrr(t_push_swap *push_swap)
+void rrr(t_push_swap *ps)
 {
-    rra(push_swap);
-    rrb(push_swap);
+    rra(ps);
+    rrb(ps);
     ft_printf("rrr\n");
 }
