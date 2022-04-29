@@ -51,20 +51,15 @@ SRCS_B =
 
 
 OBJS =          $(SRCS:%.c=%.o)
-
-OBJS_FOLDER =   srcs/.objs
+OBJS_FOLDER =   .objs
 
 
 LIBFT.A =       libs/libft/libft.a
-
 LIBFT_FOLDER =  libs/libft
 
 CC =            clang
-
 CFLAGS =		-Wall -Wextra -Werror -ggdb3
-
-INCLUDES = 		./includes
-
+INCLUDES = ./includes
 AR =             ar -rcs
 
 
@@ -73,26 +68,25 @@ all:			$(NAME)
 $(NAME):		$(OBJS) $(HEADER)
 				$(MAKE) -C $(LIBFT_FOLDER)
 				$(CC) $(CFLAGS)  -o $(NAME) $(OBJS) $(LIBFT.A)
-				@mkdir -p $(OBJS_FOLDER)
 				@echo "\033[1;32m\nMANDATORY COMPILED SUCCESFULY!\033[0m\n\n"
 
 %.o: 			%.c $(HEADER)
 				$(CC) -I$(INCLUDES) $(CFLAGS) -c $<	-o $@
 
 clean:
-				rm -rfd $(OBJS_FOLDER)
+				rm -rfd $(OBJS)
 
 fclean:
-				@$(MAKE) clean 2>/dev/null || true
-				@$(MAKE) fclean -C libs/libft 2>/dev/null || true
-				@rm -rfd push_swap 2>/dev/null || true
-				@echo "\033[1;32m\nFCLEAN MANDATORY EXECUTED SUCCESFULY!\033[0m\n\n"
+				rm -rfd $(NAME)
+				$(MAKE) clean
+				$(MAKE) fclean -C $(LIBFT_FOLDER)
+				echo "\033[1;32m\nFCLEAN MANDATORY EXECUTED SUCCESFULY!\033[0m\n\n"
 
 fclean_bonus:
-				@$(MAKE) clean 2>/dev/null || true
-				@$(MAKE) fclean -C libs/libft 2>/dev/null || true
-				@rm -rfd  2>/dev/null || true
-				@echo "\033[1;32m\nFCLEAN BONUS EXECUTED SUCCESFULY!\033[0m\n\n"
+				rm -rfd  $(NAME_B)
+				$(MAKE) clean
+				$(MAKE) fclean -C $(LIBFT_FOLDER)
+				echo "\033[1;32m\nFCLEAN BONUS EXECUTED SUCCESFULY!\033[0m\n\n"
 
 re:				fclean all
 
