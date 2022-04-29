@@ -43,18 +43,18 @@ void	reverse_stack(t_dll *stack, t_push_swap *push_swap)
 		ra(push_swap);
 }
 
-static t_dll *what_is_the_smallest (t_dll *stack)
-{
-	t_dll	*smallest;
-	t_dll	*tmp;
+// static t_dll *what_is_the_smallest (t_dll *stack)
+// {
+// 	t_dll	*smallest;
+// 	t_dll	*tmp;
 
-	tmp = stack;
-	smallest = stack;
-	while (tmp->next_item != NULL)
-	{
-		tmp = tmp->next_item;
-		if (tmp->value < smallest->value)
-			smallest = tmp;
-	}
-	return (smallest);
-}
+// 	tmp = stack;
+// 	smallest = stack;
+// 	while (tmp->next_item != NULL)
+// 	{
+// 		tmp = tmp->next_item;
+// 		if (tmp->value < smallest->value)
+// 			smallest = tmp;
+// 	}
+// 	return (smallest);
+// }

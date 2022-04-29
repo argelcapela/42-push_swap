@@ -12,7 +12,7 @@
 
 #include <push_swap.h>
 
-static void sort(t_push_swap *push_swap)
+void sort(t_push_swap *push_swap)
 {
     if (stack_already_is_sorted(push_swap) == 1)
         return ;

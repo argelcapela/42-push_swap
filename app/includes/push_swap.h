@@ -26,7 +26,7 @@
 # include <unistd.h>
 
 // libft, get_next_line, ft_printf, etc..
-# include "../libft/libft.h"
+# include "../libs/libft/libft.h"
 
 /*#################################################
 #  						  						           #
@@ -132,6 +132,8 @@ void     pb(t_push_swap *push_swap);
 #      7_sort_with_least_amount_of_movements      #
 #						  						              #
 #################################################*/
+
+void     sort(t_push_swap *push_swap);
 
 void     sort_2_numbers(t_push_swap *push_swap);
 
