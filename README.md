@@ -32,14 +32,44 @@ Trata-se da criação de um algoritmo de ordenação eficiente seguindo algumas 
 <div class="col-12">
 
 # 🚀 Rodando o projeto:<br>
-<a href="https://projects.intra.42.fr/pipex/acapela-">Página do 42-pipex na Intra da 42</a>
+
+```bash
+# 1) Clone o projeto
+$ git clone https://github.com/argelcapela/42-push_swap.git 	
+
+# 2) Entre na pasta app
+$ cd app	
+	
+# 3) Compilar o mandatório
+$ make
+
+# 4) Executar o mandatório 
+# Insira uma sequência de números aleatórios e você recebera uma sequência
+# de instruções de pilha, que ordenará essa lista de números inserida.
+$ ./push_swap 5 3 6 9 6 7 5 8 7 5 7 6
+	
+# 5) Compilar o bônus
+$ make bonus
+
+# 6) Executar o bônus
+# O Arquivo checker recebe como parâmetro a sequência de números desordenada, 
+# e como input recebe as instruções de Pilha que deveriam
+# ordená-las. Retorna OK se essa sequência de instruções recebida, 
+# realmente ordena a sequência de números.
+$ ARG="5 3 6 9 6 7 5 8 7 5 7 6" && ./push_swap 5 3 6 9 6 7 5 8 7 5 7 6 | ./checker $ARG
+	
+```
 	
 </div>
 <br>
 <div class="col-12">
     
 # 📌 O que eu aprendi e como foi desenvolvido esse projeto?<br>
-<a href="#overview">42-push_swap-study-por</a>
+<br>
+<i>Fique a vontade para conferir um artigo muito especial, onde eu apresento minhas experiências com o projeto PUSH_SWAP,
+clicando no icone bonitinho abaixo.</i><br><br>
+<a href="https://www.notion.so/argelcapela/Dominando-PUSH_SWAP-Em-Breve-8325e03aa21349ac9aee8ae3c3aaac83" target="_BLANK"><img src="https://i.imgur.com/szLYh3D.png" alt="conferir estudo"></a>
+<br>
 <br>
 <br>
 <div class="col-12">
@@ -98,7 +128,5 @@ Trata-se da criação de um algoritmo de ordenação eficiente seguindo algumas 
 
 <br><br>
 
-<i>Fique a vontade para conferir o meu estudo sobre o 42-FDF, clicando no icone bonitinho abaixo.</i><br><br>
-<a href="https://docs.google.com/presentation/d/1vBZGy_BpAbtCjEQ_kUyGS8G7FuvHdNRIaWj5CuHESxQ/edit?usp=sharing" target="_BLANK"><img src="https://i.imgur.com/OhDvVP5.png" alt="conferir estudo"></a>
-<br>
+
 --->  
