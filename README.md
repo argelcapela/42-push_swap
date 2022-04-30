@@ -6,7 +6,7 @@
 <div class="hide-on-portfolio">
 
 <div align="center">
-	<p><i>"Para cada pessoa, haverá um momento na vida em que, figurativamente falando, alguém dará um tapa nas suas costas e oferecerá a chance de fazer algo MUITO especial... QUE TRAGÉDIA SERÁ, se esse momento encontrar a pessoa despreparada, para aquele momento que poderia ter sido a sua maior oportunidade na vida."<br><br>"To each, there comes in their lifetime a special moment when they are figuratively tapped on the shoulder and offered the chance to do a very special thing…what a tragedy if that moment finds them unprepared for that which could have been their finest hour." </i><br><b>Winston Churchill</b></p>
+	<p><i>"Niguém baterá tão forte quanto a vida. Porém, não se trata de quão forte pode bater, se trata de quão forte pode ser atingido e continuar seguindo em frente. É assim que a vitória é conquistada."</i><br><b>Rocky Balboa</b></p>
 <br><br>
 	<img src="https://i.imgur.com/zbLrn0i.jpg" width="250px">
 </div>
@@ -14,24 +14,10 @@
 </div>
 <br><br>
 
-# 🏋️‍♀️ Pensamento Edificante:
-<div align="center">
-<br>
-<p>O que é a 'Prática Deliberada'? e como ela pode te ajudar a ter sucesso?<br> Assista os vídeos a seguir e descubra! </p>
-<br>
-<a href="https://www.youtube.com/embed/Mw4LSVoQYtA" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/Mw4LSVoQYtA/maxresdefault.jpg" width="100%"></a>
-<br><br>
-<a href="https://www.youtube.com/watch?v=ootebOORRBc" class="hide-on-portfolio" target="_BLANK"><img src="https://img.youtube.com/vi/ootebOORRBc/maxresdefault.jpg" width="100%"></a>
-<br>
-<br>
-<br><br>	
-</div>
-<br>
-
 <div class="hide-on-portfolio">
 	
-# ✨ O que é o 42-pipex ?
-Esse projeto exige e permite adquirir conhecimentos  mais profundos do UNIX, basicamente trata-se da recodificação do PIPE ( | ) do terminal, ou seja, conectar diferentes comandos.<br>
+# ✨ O que é o 42-push_swap?
+Trata-se da criação de um algoritmo de ordenação eficiente seguindo algumas regras: utilizar somente duas Stacks, utilizar somente operações de pilha permitidas e utilizar o número de movimentos máximo informado. <br>
 </div>
 <br>
 
@@ -53,7 +39,7 @@ Esse projeto exige e permite adquirir conhecimentos  mais profundos do UNIX, bas
 <div class="col-12">
     
 # 📌 O que eu aprendi e como foi desenvolvido esse projeto?<br>
-<a href="#overview">42-pipex-study-por</a>
+<a href="#overview">42-push_swap-study-por</a>
 <br>
 <br>
 <div class="col-12">
@@ -72,9 +58,6 @@ Esse projeto exige e permite adquirir conhecimentos  mais profundos do UNIX, bas
   </tr>
 </table>
 <br>
-<!--
-<i>Obrigado Especial 🎁 a Bruno Mignon (bmugnol-) e Diogo Chaves (dchaves-), entre outros Cadetes super solícitos, que me incentivaram e me ajudaram a entender  os cálculos matemáticas entre outros conceitos durante o desenvolvimento. Vocês são feras! A cada projeto vejo como a comunidade da 42 é maravilhosa e cheia de pessoas muito especiais. 👽✌😁👍 </i>
--->
 </div>
 	
 <div class="col-12">
@@ -107,10 +90,6 @@ Esse projeto exige e permite adquirir conhecimentos  mais profundos do UNIX, bas
 
 <br><br>
 	
-<div align="center" id="overview">
-
-# 👑
-<br>
  <!--
 <i>Por favor, clique na imagem a seguir para abrir um vídeo de demonstração do meu 42-pipex</i>
 <br><br>
@@ -122,5 +101,4 @@ Esse projeto exige e permite adquirir conhecimentos  mais profundos do UNIX, bas
 <i>Fique a vontade para conferir o meu estudo sobre o 42-FDF, clicando no icone bonitinho abaixo.</i><br><br>
 <a href="https://docs.google.com/presentation/d/1vBZGy_BpAbtCjEQ_kUyGS8G7FuvHdNRIaWj5CuHESxQ/edit?usp=sharing" target="_BLANK"><img src="https://i.imgur.com/OhDvVP5.png" alt="conferir estudo"></a>
 <br>
---->
-</div>   
+--->  
