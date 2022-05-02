@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/29 13:53:44 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/02 16:05:33 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		print_stack_vertical(t_dll *f_i_dll)
     ft_printf("=== STACK A ===\n");
     while (tmp->next != NULL)
     {
-        ft_printf("[%d] = %d\n",tmp->index, tmp->value);
+        ft_printf("[%d] = %d\n",tmp->keep, tmp->value);
         tmp = tmp->next;
     }
     ft_printf("%d\n", tmp->value);

@@ -71,16 +71,16 @@ receive an index different of -1. */
 static void sort_indexes(t_dll **stack, t_push_swap *ps)
 {
 	t_dll   *head;
-	int     index;
+	int     i;
 
-	index = 0;
+	i = 0;
 	head = get_next_smallest(stack);
 	while (head)
 	{
-		head->index = index++;
-		ps->biggest_node_index = head->index;
+		head->index = i++;
 		head = get_next_smallest(stack);
 	}
+	ps->biggest_node_index = i;
 }
 
 
@@ -91,5 +91,6 @@ int init_push_swap(t_push_swap *ps)
 	ps->stack_length = ps->argc - 1;
 	fill_stack_a(ps);
 	sort_indexes(&(ps->stack_a), ps);
+    //print_stack_vertical(ps->stack_a);
 	return (0);
 }

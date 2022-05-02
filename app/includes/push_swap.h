@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/29 18:56:59 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/02 13:36:07 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@
 
 # define INT_MIN 2147483648
 
+# define FF 0xFFFFFFF
+
 /*#################################################
 #  						  						           #
 #   				structs	  				              #
@@ -49,6 +51,7 @@ typedef struct s_dll
 {
 	struct s_dll	*previous;
 	struct s_dll	*next;
+   int            keep;
    int            index;
 	int				value;
 }	t_dll;
