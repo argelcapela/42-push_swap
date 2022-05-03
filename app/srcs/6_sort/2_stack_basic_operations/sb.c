@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/29 11:19:28 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:48:19 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void sb(t_push_swap *ps)
 {
     int tmp;
 
-    if (stack_length(ps->stack_b) <= 1)
+    if (stack_length(ps->b) <= 1)
         return ;
-    tmp = ps->stack_b->value;
-    ps->stack_b->value = ps->stack_b->next->value;
-    ps->stack_b->next->value = tmp;
+    tmp = ps->b->value;
+    ps->b->value = ps->b->next->value;
+    ps->b->next->value = tmp;
     ft_printf("sb\n");
 }

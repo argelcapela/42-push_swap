@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/29 13:57:52 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/03 17:53:47 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void sort(t_push_swap *ps)
 {
-    if (is_sorted(ps->stack_a) == 1)
+    if (is_sorted(ps->a) == 1)
         return ;
     if (ps->stack_length == 2)
         sort_2_numbers(ps);
@@ -23,5 +23,8 @@ void sort(t_push_swap *ps)
     else if (ps->stack_length > 3 && ps->stack_length <= 5)
         sort_5_numbers(ps);
     else
+    {
+        ps->group_size = ps->argc / 200 * 5 + 10;
         sort_more_than_5_numbers(ps);
+    }
 }

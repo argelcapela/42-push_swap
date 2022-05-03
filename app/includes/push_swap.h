@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/02 13:36:07 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/03 17:55:03 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,18 +60,11 @@ typedef struct s_push_swap
 {
    int            argc;
    char**         argv;
-	struct s_dll   *stack_a;
-   struct s_dll   *stack_b;
-   int            stack_length;
-   int            group_amount;
+	struct s_dll   *a;
+   struct s_dll   *b;
    int            group_size;
    int            current_group;
-   int            biggest_node_index;
-
-   struct s_dll   *temp;
-   int            big;
-   int            action_count;
-   int            print;
+   int            stack_length;
 }	t_push_swap;
 
 /*#################################################

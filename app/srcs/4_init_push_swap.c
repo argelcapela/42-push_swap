@@ -12,19 +12,19 @@
 
 #include <push_swap.h>
 
-static int fill_stack_a(t_push_swap *ps)
+static int fill_a(t_push_swap *ps)
 {
 	int     i;
 	t_dll   *tmp_dll;
 
 	if (ps->argc == 1)
 	{
-		ps->stack_a = NULL;
+		ps->a = NULL;
 		return (0);
 	}
 	i = 1;
-	ps->stack_a = (t_dll *) malloc(sizeof(t_dll));
-	tmp_dll = ps->stack_a;
+	ps->a = (t_dll *) malloc(sizeof(t_dll));
+	tmp_dll = ps->a;
 	tmp_dll->previous = NULL;
 	tmp_dll->value = atoi(ps->argv[i]);
 	tmp_dll->index = -1;
@@ -41,7 +41,7 @@ static int fill_stack_a(t_push_swap *ps)
 }
 
 
-/* Loop all stack_a searching the node with the smallest value that
+/* Loop all a searching the node with the smallest value that
 don't have an index yet. This node is returned and receive an index. */
 static t_dll *get_next_smallest(t_dll **stack)
 {
@@ -65,10 +65,10 @@ static t_dll *get_next_smallest(t_dll **stack)
 	return (smallest);
 }
 
-/* fill stack_a with sorted indexes starting from smallest
+/* fill a with sorted indexes starting from smallest
 ending on the biggest. Function end when all the nodes
 receive an index different of -1. */
-static void sort_indexes(t_dll **stack, t_push_swap *ps)
+static void sort_indexes(t_dll **stack)
 {
 	t_dll   *head;
 	int     i;
@@ -80,7 +80,6 @@ static void sort_indexes(t_dll **stack, t_push_swap *ps)
 		head->index = i++;
 		head = get_next_smallest(stack);
 	}
-	ps->biggest_node_index = i;
 }
 
 
@@ -89,8 +88,8 @@ static void sort_indexes(t_dll **stack, t_push_swap *ps)
 int init_push_swap(t_push_swap *ps)
 {
 	ps->stack_length = ps->argc - 1;
-	fill_stack_a(ps);
-	sort_indexes(&(ps->stack_a), ps);
-    //print_stack_vertical(ps->stack_a);
+	fill_a(ps);
+	sort_indexes(&(ps->a));
+    //print_stack_vertical(ps->a);
 	return (0);
 }

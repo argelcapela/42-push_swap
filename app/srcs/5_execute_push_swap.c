@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/29 13:58:08 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:48:49 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int execute_push_swap(t_push_swap *push_swap)
 {
-	//  print_stack_horizontal(push_swap->stack_a, "STACK A");
+	//  print_stack_horizontal(push_swap->a, "STACK A");
     //  ft_printf("\n");
-    //  print_stack_horizontal(push_swap->stack_b, "STACK B");
+    //  print_stack_horizontal(push_swap->b, "STACK B");
     sort(push_swap);
     // show stacks
-    //print_stack_vertical(push_swap->stack_a);
+    //print_stack_vertical(push_swap->a);
     // ft_printf("\n");
-    // print_stack_horizontal(push_swap->stack_b, "STACK B");
+    // print_stack_horizontal(push_swap->b, "STACK B");
     return (0);
 }

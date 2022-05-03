@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/29 11:19:09 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:48:02 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,24 @@ void pb(t_push_swap *ps)
 {
     t_dll   *tmp;
 
-    tmp = ps->stack_b;
-    if (ps->stack_a == NULL && ps->stack_b == NULL)
+    tmp = ps->b;
+    if (ps->a == NULL && ps->b == NULL)
         return ;
-    else if (ps->stack_a == NULL)
+    else if (ps->a == NULL)
         return ;
     else if (tmp == NULL)
     {
-        tmp = ps->stack_a;
-        ps->stack_a = ps->stack_a->next;
-        ps->stack_b = tmp;
+        tmp = ps->a;
+        ps->a = ps->a->next;
+        ps->b = tmp;
         tmp->next = NULL;
     }
     else
     {
-        tmp = ps->stack_a;
-        ps->stack_a = ps->stack_a->next;
-        tmp->next = ps->stack_b;
-        ps->stack_b = tmp;
+        tmp = ps->a;
+        ps->a = ps->a->next;
+        tmp->next = ps->b;
+        ps->b = tmp;
     }
     ft_printf("pb\n");
 }
