@@ -14,13 +14,6 @@
 
 int execute_push_swap(t_push_swap *push_swap)
 {
-	//  print_stack_horizontal(push_swap->a, "STACK A");
-    //  ft_printf("\n");
-    //  print_stack_horizontal(push_swap->b, "STACK B");
     sort(push_swap);
-    // show stacks
-    //print_stack_vertical(push_swap->a);
-    // ft_printf("\n");
-    // print_stack_horizontal(push_swap->b, "STACK B");
     return (0);
 }

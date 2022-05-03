@@ -12,13 +12,6 @@
 
 #include <push_swap.h>
 
-/*
- * stack_length
- * last_item
- * is_sorted
- *
- */
-
 int		stack_length(t_dll *stack)
 {
     int i;
