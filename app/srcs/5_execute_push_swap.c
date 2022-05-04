@@ -6,14 +6,14 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/04 01:51:05 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/04 22:13:43 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-int	execute_push_swap(t_push_swap *push_swap)
+int	execute_push_swap(t_push_swap *ps)
 {
-	sort(push_swap);
+	sort(ps);
 	return (0);
 }

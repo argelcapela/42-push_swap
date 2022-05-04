@@ -6,7 +6,7 @@
 #    By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 01:45:50 by acapela-          #+#    #+#              #
-#    Updated: 2022/05/04 02:16:28 by acapela-         ###   ########.fr        #
+#    Updated: 2022/05/04 22:07:24 by acapela-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS =			srcs/1_main.c \
 				srcs/2_push_swap.c \
 				srcs/3_identify_errors.c \
 				srcs/4_init_push_swap.c \
-				srcs/5_execute_push_swap.c
+				srcs/5_execute_push_swap.c \
+				srcs/7_clear.c
 
 SRCS +=			srcs/6_sort/1_sort_utils/sort_utils_1.c \
 				srcs/6_sort/1_sort_utils/sort_utils_2.c

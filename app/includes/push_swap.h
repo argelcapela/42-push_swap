@@ -6,47 +6,28 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/04 02:29:20 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/04 22:43:57 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-/*#################################################
-#  						  						           #
-#   				libs	  					              #
-#						  						              #
-#################################################*/
-
-// malloc, free
+// Libs
 # include <stdlib.h>
 
-// read, write
 # include <unistd.h>
 
-// libft, get_next_line, ft_printf, etc..
 # include "../libs/libft/libft.h"
 
-/*#################################################
-#  						  						           #
-#   				macros	  					           #
-#						  						              #
-#################################################*/
-
+// Constants
 # define INT_MAX 2147483647
 
 # define INT_MIN 2147483648
 
 # define FF 0xFFFFFFF
 
-/*#################################################
-#  						  						           #
-#   				structs	  				              #
-#						  						              #
-#################################################*/
-
-// linked list
+// Structs
 typedef struct s_dll
 {
 	struct s_dll	*previous;
@@ -67,44 +48,16 @@ typedef struct s_push_swap
    int            stack_length;
 }	t_push_swap;
 
-/*#################################################
-#  						  						           #
-#   			     2_push_swap.c   		           #
-#						  						              #
-#################################################*/
+// App
+int				push_swap(int argc, char **argv);
 
-int		push_swap(int argc, char **argv);
+int				identify_errors(int argc, char **argv);
 
-/*#################################################
-#  						  						           #
-#   		     3_identify_errors.c	              #
-#						  						              #
-#################################################*/
+t_push_swap 	*init_push_swap(int argc, char **argv);
 
-int	   identify_erros(int argc, char **argv);
+int				execute_push_swap(t_push_swap *ps);
 
-/*#################################################
-#  						  						           #
-#   		     4_init_push_swap.c	   	           #
-#						  						              #
-#################################################*/
-
-int      init_push_swap(t_push_swap *ps);
-
-/*#################################################
-#  						  						           #
-#   		    5_execute_push_swap.c  	           #
-#						  						              #
-#################################################*/
-
-int      execute_push_swap(t_push_swap *ps);
-
-/*#################################################
-#  						  						           #
-#   			  6_basic_movements			           #
-#						  						              #
-#################################################*/
-
+// Stack operations
 void     ra(t_push_swap *ps);
 
 void     rb(t_push_swap *ps);
@@ -127,12 +80,7 @@ void     pa(t_push_swap *ps);
 
 void     pb(t_push_swap *ps);
 
-/*#################################################
-#  						  						           #
-#      7_sort_with_least_amount_of_movements      #
-#						  						              #
-#################################################*/
-
+// Sort
 void     sort(t_push_swap *ps);
 
 void     sort_2_numbers(t_push_swap *ps);
@@ -145,28 +93,20 @@ void     sort_5_numbers(t_push_swap *ps);
 
 void     sort_more_than_5_numbers(t_push_swap *ps);
 
-/*#################################################
-#  						  						           #
-#             utils_1.c		           #
-#						  						              #
-#################################################*/
-
+// Utils
 int		stack_length(t_dll *stack);
 
-t_dll	   *last_item(t_dll *stack);
+t_dll	*last_item(t_dll *stack);
 
 int      is_sorted(t_dll *stack);
-
-/*#################################################
-#  						  						           #
-#             utils_2.c		           #
-#						  						              #
-#################################################*/
-
-
 
 int		print_stack_vertical(t_dll *f_i_dll);
 
 int		print_stack_horizontal(t_dll *stack, char *title);
+
+// Free
+void 	free_stack(t_dll *stack);
+
+void	clear_app(t_push_swap *ps);
 
 #endif

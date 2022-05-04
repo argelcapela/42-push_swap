@@ -6,7 +6,7 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/04 01:44:09 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/04 22:12:33 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ static int	check_if_there_is_value_duplication(int argc, char **argv)
 	i = 0;
 	y = -1;
 	z = 0;
-	comparation_stack = (char **) malloc (argc * sizeof(char *));
+	comparation_stack = NULL;
+	comparation_stack = (char **) ft_calloc(argc, sizeof(char *));
+	if (!comparation_stack)
+		return (0);
 	while (argv[++i])
 	{
 		while (comparation_stack[++y])
@@ -34,6 +37,7 @@ static int	check_if_there_is_value_duplication(int argc, char **argv)
 		comparation_stack[z] = ft_strdup(argv[i]);
 		z++;
 	}
+	ft_free_matrix((void **) comparation_stack);
 	return (0);
 }
 
@@ -58,6 +62,7 @@ static int	check_if_value_is_not_integer(char **argv)
 		y = -1;
 		if (is_not_digit > 0)
 			return (1);
+		ft_free_ptr((void *) &tmp);
 	}
 	return (0);
 }
@@ -85,7 +90,7 @@ static int	check_if_value_overcome_limit(char **argv)
 	return (0);
 }
 
-int	identify_erros(int argc, char **argv)
+int	identify_errors(int argc, char **argv)
 {
 	if (argc <= 1)
 		return (2);

@@ -6,7 +6,7 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 01:45:26 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/04 01:48:06 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/04 22:47:46 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ static int	fill_a(t_push_swap *ps)
 	return (0);
 }
 
-/* Loop all a searching the node with the smallest value that
-don't have an index yet. This node is returned and receive an index. */
 static t_dll	*get_next_smallest(t_dll **stack)
 {
 	int		has_index;
@@ -64,9 +62,6 @@ static t_dll	*get_next_smallest(t_dll **stack)
 	return (smallest);
 }
 
-/* fill a with sorted indexes starting from smallest
-ending on the biggest. Function end when all the nodes
-receive an index different of -1. */
 static void	sort_indexes(t_dll **stack)
 {
 	t_dll	*head;
@@ -81,10 +76,16 @@ static void	sort_indexes(t_dll **stack)
 	}
 }
 
-int	init_push_swap(t_push_swap *ps)
+t_push_swap	*init_push_swap(int argc, char **argv)
 {
+	t_push_swap	*ps;
+
+	ps = (t_push_swap *) malloc(sizeof(t_push_swap));
+	ps->argc = argc;
+	ps->argv = argv;
 	ps->stack_length = ps->argc - 1;
 	fill_a(ps);
+	ps->b = NULL;
 	sort_indexes(&(ps->a));
-	return (0);
+	return (ps);
 }

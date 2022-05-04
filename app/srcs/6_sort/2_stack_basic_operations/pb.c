@@ -6,7 +6,7 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/04 02:07:05 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/04 22:40:53 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	pb(t_push_swap *ps)
 {
 	t_dll	*tmp;
 
+	tmp = NULL;
 	tmp = ps->b;
 	if (ps->a == NULL && ps->b == NULL)
 		return ;
