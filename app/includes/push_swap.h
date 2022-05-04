@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/04 23:17:29 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/04 18:49:36 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,9 @@ typedef struct s_push_swap
 	struct s_dll		*a;
 	struct s_dll		*b;
 	int					argc;
-	int					stack_length;
 	char				**argv;
+	int					stack_length;
+	int					group_size;
 }	t_push_swap;
 
 // App
