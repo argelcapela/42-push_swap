@@ -6,31 +6,23 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/18 16:43:08 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/04 01:44:09 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-/*
-
-some arguments aren’t integers				-
-some arguments are bigger than an integer   -
-there are duplicates						ok
-
-*/
-
-static int check_if_there_is_value_duplication(int argc, char **argv)
+static int	check_if_there_is_value_duplication(int argc, char **argv)
 {
-    char    **comparation_stack;
-    int     i;
-    int     y;
+	char	**comparation_stack;
+	int		i;
+	int		y;
 	int		z;
 
-    i = 0;
-    y = -1;
+	i = 0;
+	y = -1;
 	z = 0;
-    comparation_stack = (char **) malloc (argc * sizeof(char*));
+	comparation_stack = (char **) malloc (argc * sizeof(char *));
 	while (argv[++i])
 	{
 		while (comparation_stack[++y])
@@ -42,10 +34,10 @@ static int check_if_there_is_value_duplication(int argc, char **argv)
 		comparation_stack[z] = ft_strdup(argv[i]);
 		z++;
 	}
-    return (0);
+	return (0);
 }
 
-static int check_if_value_is_not_integer(char **argv)
+static int	check_if_value_is_not_integer(char **argv)
 {
 	int		i;
 	int		y;
@@ -70,13 +62,11 @@ static int check_if_value_is_not_integer(char **argv)
 	return (0);
 }
 
-#include <stdio.h>
-
-static int check_if_value_overcome_limit(char **argv)
+static int	check_if_value_overcome_limit(char **argv)
 {
 	int				i;
-	unsigned int 	n;
 	int				is_negative;
+	unsigned int	n;
 
 	i = 0;
 	while (argv[++i])
@@ -88,21 +78,22 @@ static int check_if_value_overcome_limit(char **argv)
 			n = (unsigned int) ft_atoi(argv[i]);
 		else
 			n = (unsigned int) ft_atoi(argv[i] + 1);
-		if ((is_negative == 0 && n > INT_MAX) || (is_negative == 1 && n > INT_MIN))
+		if ((is_negative == 0 && n > INT_MAX) \
+		|| (is_negative == 1 && n > INT_MIN))
 			return (1);
 	}
 	return (0);
 }
 
-int identify_erros(int argc, char **argv)
+int	identify_erros(int argc, char **argv)
 {
-    if (argc <= 1)
-        return (2);
+	if (argc <= 1)
+		return (2);
 	else if (check_if_value_is_not_integer(argv) == 1)
 		return (1);
-    else if (check_if_there_is_value_duplication(argc, argv) == 1)
-        return (1);
+	else if (check_if_there_is_value_duplication(argc, argv) == 1)
+		return (1);
 	else if (check_if_value_overcome_limit(argv) == 1)
 		return (1);
-    return (0);
+	return (0);
 }

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   7_sort_more_than_5_numbers.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/03 18:01:39 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/04 02:14:08 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int locate_high_num_pos(t_dll *head, int *high)
+static int	locate_high_num_pos(t_dll *head, int *high)
 {
-	int i;
+	int	i;
 	int	high_pos;
 
 	i = 0;
@@ -34,7 +34,7 @@ static int locate_high_num_pos(t_dll *head, int *high)
 	return (0);
 }
 
-static void insert_back_to_a(t_push_swap *ps)
+static void	insert_back_to_a(t_push_swap *ps)
 {
 	int	high;
 	int	rotation;
@@ -53,9 +53,7 @@ static void insert_back_to_a(t_push_swap *ps)
 	}
 }
 
-static void closest(int )
-
-void sort_more_than_5_numbers(t_push_swap *ps)
+void	sort_more_than_5_numbers(t_push_swap *ps)
 {
 	int	i;
 
@@ -67,17 +65,10 @@ void sort_more_than_5_numbers(t_push_swap *ps)
 			pb(ps);
 			ps->group_size++;
 			if (ps->b->value > (last_item(ps->b))->value)
-					rb(ps);
+				rb(ps);
 		}
 		else
-		{
-			int rotation;
-
-			if (closest(ps->a->index, ps->group_size) == 1)
-				ra(ps);
-			else
-				rra(ps);
-		}
+			ra(ps);
 	}
 	insert_back_to_a(ps);
 }

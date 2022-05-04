@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+         #
+#    By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 01:45:50 by acapela-          #+#    #+#              #
-#    Updated: 2022/05/03 17:54:57 by acapela-         ###   ########.fr        #
+#    Updated: 2022/05/04 02:16:28 by acapela-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ SRCS =			srcs/1_main.c \
 				srcs/5_execute_push_swap.c
 
 SRCS +=			srcs/6_sort/1_sort_utils/sort_utils_1.c \
-				srcs/6_sort/1_sort_utils/sort_utils_2.c \
-				srcs/6_sort/1_sort_utils/sort_utils_3.c
+				srcs/6_sort/1_sort_utils/sort_utils_2.c
 
 SRCS +=			srcs/6_sort/2_stack_basic_operations/pa.c \
 				srcs/6_sort/2_stack_basic_operations/pb.c \
@@ -46,13 +45,10 @@ SRCS +=			srcs/6_sort/3_sort.c \
 				srcs/6_sort/6_sort_5_numbers.c \
 				srcs/6_sort/7_sort_more_than_5_numbers.c 
 
-
 SRCS_B =
-
 
 OBJS =          $(SRCS:%.c=%.o)
 OBJS_FOLDER =   .objs
-
 
 LIBFT.A =       libs/libft/libft.a
 LIBFT_FOLDER =  libs/libft
@@ -61,7 +57,6 @@ CC =            clang
 CFLAGS =		-Wall -Wextra -Werror -ggdb3
 INCLUDES = ./includes
 AR =             ar -rcs
-
 
 all:			$(NAME)
 

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_init_ps.c                                 :+:      :+:    :+:   */
+/*   4_init_push_swap.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/04/29 11:17:29 by acapela-         ###   ########.fr       */
+/*   Created: 2022/05/04 01:45:26 by acapela-          #+#    #+#             */
+/*   Updated: 2022/05/04 01:48:06 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-static int fill_a(t_push_swap *ps)
+static int	fill_a(t_push_swap *ps)
 {
-	int     i;
-	t_dll   *tmp_dll;
+	int		i;
+	t_dll	*tmp_dll;
 
 	if (ps->argc == 1)
 	{
@@ -40,14 +40,13 @@ static int fill_a(t_push_swap *ps)
 	return (0);
 }
 
-
 /* Loop all a searching the node with the smallest value that
 don't have an index yet. This node is returned and receive an index. */
-static t_dll *get_next_smallest(t_dll **stack)
+static t_dll	*get_next_smallest(t_dll **stack)
 {
-	int     has_index;
-	t_dll   *smallest;
-	t_dll   *head;
+	int		has_index;
+	t_dll	*smallest;
+	t_dll	*head;
 
 	has_index = 0;
 	smallest = NULL;
@@ -55,7 +54,7 @@ static t_dll *get_next_smallest(t_dll **stack)
 	while (head)
 	{
 		if ((head->index == -1) && (has_index == 0
-		|| head->value < smallest->value))
+				|| head->value < smallest->value))
 		{
 			smallest = head;
 			has_index = 1;
@@ -68,10 +67,10 @@ static t_dll *get_next_smallest(t_dll **stack)
 /* fill a with sorted indexes starting from smallest
 ending on the biggest. Function end when all the nodes
 receive an index different of -1. */
-static void sort_indexes(t_dll **stack)
+static void	sort_indexes(t_dll **stack)
 {
-	t_dll   *head;
-	int     i;
+	t_dll	*head;
+	int		i;
 
 	i = 0;
 	head = get_next_smallest(stack);
@@ -82,14 +81,10 @@ static void sort_indexes(t_dll **stack)
 	}
 }
 
-
-
-
-int init_push_swap(t_push_swap *ps)
+int	init_push_swap(t_push_swap *ps)
 {
 	ps->stack_length = ps->argc - 1;
 	fill_a(ps);
 	sort_indexes(&(ps->a));
-    //print_stack_vertical(ps->a);
 	return (0);
 }
