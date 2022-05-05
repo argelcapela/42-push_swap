@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+         #
+#    By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/31 01:45:50 by acapela-          #+#    #+#              #
-#    Updated: 2022/05/04 22:07:24 by acapela-         ###   ########.fr        #
+#    Updated: 2022/05/05 16:19:06 by acapela-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,7 @@ SRCS =			srcs/1_main.c \
 				srcs/5_execute_push_swap.c \
 				srcs/7_clear.c
 
-SRCS +=			srcs/6_sort/1_sort_utils/sort_utils_1.c \
-				srcs/6_sort/1_sort_utils/sort_utils_2.c
+SRCS +=			srcs/6_sort/1_sort_utils/sort_utils_1.c
 
 SRCS +=			srcs/6_sort/2_stack_basic_operations/pa.c \
 				srcs/6_sort/2_stack_basic_operations/pb.c \
@@ -44,7 +43,7 @@ SRCS +=			srcs/6_sort/3_sort.c \
 				srcs/6_sort/4_sort_2_numbers.c \
 				srcs/6_sort/5_sort_3_numbers.c \
 				srcs/6_sort/6_sort_5_numbers.c \
-				srcs/6_sort/7_sort_more_than_5_numbers.c 
+				srcs/6_sort/7_sort_more_than_5_numbers.c
 
 SRCS_B =
 

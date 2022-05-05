@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ra.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/04 02:07:48 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:28:24 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	ra(t_push_swap *ps)
 	last->next = first;
 	first->next = NULL;
 	ps->a = second;
-	ft_printf("ra\n");
+	ft_putstr_fd("ra\n", 1);
 }

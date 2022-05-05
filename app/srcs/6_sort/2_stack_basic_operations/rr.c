@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rr.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/04 02:08:59 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:28:30 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	rr(t_push_swap *ps)
 {
 	ra(ps);
 	rb(ps);
-	ft_printf("rr\n");
+	ft_putstr_fd("rr\n", 1);
 }

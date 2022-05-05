@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/04 02:10:28 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/05 16:28:34 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,5 @@ void	rrb(t_push_swap *ps)
 	last->next = first;
 	before_last->next = NULL;
 	ps->b = last;
-	ft_printf("rrb\n");
+	ft_putstr_fd("rrb\n", 1);
 }
