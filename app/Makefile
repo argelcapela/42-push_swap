@@ -1,20 +1,17 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/01/31 01:45:50 by acapela-          #+#    #+#              #
-#    Updated: 2022/05/06 20:16:51 by acapela-         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+.PHONY: all clean fclean re
+
+CC =            clang
+HEADERS_DIR =   ./includes
+CFLAGS =		-I$(HEADERS_DIR) -Wall -Wextra -Werror -ggdb3
+AR =            ar -rcs
+RM =            rm -rfd
+LIBFT_DIR = 	libs/libft
+LIBFT.A =       $(LIBFT_DIR)/libft.a
 
 NAME =			push_swap
-NAME_B =		push_swap_b
-
+SRCS_DIR =   	srcs
+OBJS_DIR =   	.objs
 HEADER =		./includes/push_swap.h
-HEADER_B = 		./includes/push_swap_b.h
 
 SRCS_FILES=		1_main.c \
 				2_push_swap.c \
@@ -43,53 +40,32 @@ SRCS_FILES +=	6_sort/3_sort.c \
 				6_sort/6_sort_5_numbers.c \
 				6_sort/7_sort_more_than_5_numbers.c
 
-SRCS_FOLDER =   srcs
-OBJS_FOLDER =   .objs
+SRCS = 			$(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
+OBJS =          $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
+$(OBJS_DIR)/%.o:	$(SRCS_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-SRCS = 			$(addprefix $(SRCS_FOLDER)/, $(SRCS_FILES))
-OBJS =          $(SRCS:$(SRCS_FILES)/%.c=$(OBJ_FOLDER)/%.o)
+all:	$(NAME)
 
-LIBFT.A =       libs/libft/libft.a
-LIBFT_FOLDER =  libs/libft
+$(NAME):	$(OBJS_DIR) $(OBJS) $(HEADER)
+	make -C $(LIBFT_DIR)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME) $(LIBFT.A)
+	@echo "\033[1;32mMANDATORY COMPILED SUCCESFULY!\033[0m"
 
-CC =            clang
-CFLAGS =		-Wall -Wextra -Werror -ggdb3
-INCLUDES =      ./includes
-AR =             ar -rcs
-RM =             rm -rfd
-
-$(OBJS_FOLDER)/%.o: $(SRCS_DIR)/%.c $(HEADER)
-				$(CC) -I$(INCLUDES) $(CFLAGS) -c $<	-o $@
-
-$(OBJS_FOLDER)/%.o: $(BONUS_DIR)/%.c $(HEADER_BONUS)
-				$(CC) -I$(INCLUDES) $(CFLAGS) -c $<	-o $@
-
-all:
-				echo $(OBJS)
-#$(NAME)
-
-bonus:			$(NAME_BONUS)
-
-$(NAME):		$(LIBFT) $(OBJS_FOLDER) $(OBJS) $(HEADER)
-				$(CC) $(CFLAGS) $(OBJS) $(LIBFT.A) -o $(NAME)
-				@echo "\033[1;32m\nMANDATORY COMPILED SUCCESFULY!\033[0m\n\n"
-
-$(OBJS_FOLDER):
-				mkdir -p $(OBJS_FOLDER)
-
-$(LIBFT):
-				$(MAKE) -C $(LIBFT_FOLDER)
+$(OBJS_DIR):
+	mkdir -p $(OBJS_DIR)
+	mkdir -p $(OBJS_DIR)/6_sort
+	mkdir -p $(OBJS_DIR)/6_sort/1_sort_utils
+	mkdir -p $(OBJS_DIR)/6_sort/2_stack_basic_operations
 
 clean:
-				$(MAKE) -C $(LIBFT_FOLDER) clean
-				$(RM) $(OBJS)
+	$(RM) $(OBJS_DIR)
+	@echo "\033[1;32mCLEAN EXECUTED SUCCESFULY!\033[0m"
 
-fclean:			clean
-				rm -rfd $(NAME)
-				$(MAKE) -C $(LIBFT_FOLDER) fclean
-				$(RM) $(NAME) $(NAME_BONUS)
-				echo "\033[1;32m\nFCLEAN MANDATORY EXECUTED SUCCESFULY!\033[0m\n\n"
+fclean:	clean
+	find -name '$(NAME)' -delete
+	@echo "\033[1;32mFCLEAN EXECUTED SUCCESFULY!\033[0m"
 
-re:				fclean all
-
-.PHONY:			clean fclean re
+re:
+	@make fclean && make all
+	@echo "\033[1;32mRE EXECUTED SUCCESFULY!\033[0m"
