@@ -70,10 +70,14 @@ re:
 	@make fclean && make all
 	@echo "\033[1;32mRE EXECUTED SUCCESFULY!\033[0m"
 
-thundred:
-	@./push_swap `ruby -e "puts (0..99).to_a.shuffle.join(' ')"`
-	@echo "\nmovements (limit 700): " && ./push_swap `ruby -e "puts (0..99).to_a.shuffle.join(' ')"` | wc -l
+tfive: $(NAME)
+	@./push_swap `ruby -e "puts (0..11).to_a.shuffle.join(' ')"`
+	@echo "\n5 numbers test - movements (limit 12): " && ./push_swap `ruby -e "puts (0..4).to_a.shuffle.join(' ')"` | wc -l
 
-t5hundred:
+thundred: $(NAME)
+	@./push_swap `ruby -e "puts (0..99).to_a.shuffle.join(' ')"`
+	@echo "\n100 numbers test - movements (limit 700): " && ./push_swap `ruby -e "puts (0..99).to_a.shuffle.join(' ')"` | wc -l
+
+tfhundred: $(NAME)
 	@./push_swap `ruby -e "puts (0..499).to_a.shuffle.join(' ')"`
-	@echo "\nmovements (limit 5500): " && ./push_swap `ruby -e "puts (0..499).to_a.shuffle.join(' ')"` | wc -l
+	@echo "\n500 numbers test - movements (limit 5500): " && ./push_swap `ruby -e "puts (0..499).to_a.shuffle.join(' ')"` | wc -l
