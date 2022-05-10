@@ -16,15 +16,15 @@ int	main(int argc, char **argv)
 {
 	t_push_swap	*ps;
 
-	if (identify_errors(argc, argv) == 1)
+	if (parse_error(argc, argv) == 1)
 	{
 		ft_putstr_fd("Error", 2);
 		exit(1);
 	}
-	else if (identify_errors(argc, argv) == 2)
+	else if (parse_error(argc, argv) == 2)
 		exit(1);
-	ps = init_push_swap(argc, argv);
-	execute_push_swap(ps);
-	clear_app(ps);
+	ps = init(argc, argv);
+	sort(ps);
+	clear(ps);
 	return (0);
 }

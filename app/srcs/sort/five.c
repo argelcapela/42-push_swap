@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include	<push_swap.h>
 
-static void	sort_5_numbers_2(t_push_swap *ps, int *fa,
+static void	five2(t_push_swap *ps, int *fa,
 		int *fb, int *la)
 {
 	int	r;
@@ -24,7 +24,7 @@ static void	sort_5_numbers_2(t_push_swap *ps, int *fa,
 		r++;
 		*fa = ps->a->value;
 		*fb = ps->b->value;
-		*la = last_item(ps->a)->value;
+		*la = ft_dll_last(ps->a)->value;
 		if (*fb < *fa && *fb > *la)
 		{
 			pa(ps);
@@ -41,23 +41,23 @@ static void	double_pb(t_push_swap *ps)
 	pb(ps);
 }
 
-void	sort_5_numbers(t_push_swap *ps)
+void	five(t_push_swap *ps)
 {
 	int	fa;
 	int	fb;
 	int	la;
 
-	if (stack_length(ps->a) == 5)
+	if (ft_dll_size(ps->a) == 5)
 		double_pb(ps);
 	else
 		pb(ps);
-	sort_3_numbers(ps);
-	sort_2_numbers_b(ps);
-	while (stack_length(ps->b) > 0)
+	three(ps);
+	two2(ps);
+	while (ft_dll_size(ps->b) > 0)
 	{
 		fa = ps->a->value;
 		fb = ps->b->value;
-		la = last_item(ps->a)->value;
+		la = ft_dll_last(ps->a)->value;
 		if (fb < fa && fb < la)
 			pa(ps);
 		else if (fb > fa && fb > la)
@@ -66,6 +66,6 @@ void	sort_5_numbers(t_push_swap *ps)
 			ra(ps);
 		}
 		else if (fb > fa && fb < la)
-			sort_5_numbers_2(ps, &fa, &fb, &la);
+			five2(ps, &fa, &fb, &la);
 	}
 }

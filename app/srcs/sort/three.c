@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include	<push_swap.h>
 
-void	sort_3_numbers(t_push_swap *ps)
+void	three(t_push_swap *ps)
 {
 	int	n1;
 	int	n2;

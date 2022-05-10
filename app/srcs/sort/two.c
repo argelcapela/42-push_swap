@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <push_swap.h>
+#include	<push_swap.h>
 
-void	sort_2_numbers(t_push_swap *ps)
+void	two(t_push_swap *ps)
 {
 	t_dll	*n1;
 	t_dll	*n2;
 
-	if (stack_length(ps->a) != 2)
+	if (ft_dll_size(ps->a) != 2)
 		return ;
 	n1 = ps->a;
 	n2 = ps->a->next;
@@ -25,12 +25,12 @@ void	sort_2_numbers(t_push_swap *ps)
 		sa(ps);
 }
 
-void	sort_2_numbers_b(t_push_swap *ps)
+void	two2(t_push_swap *ps)
 {
 	t_dll	*n1;
 	t_dll	*n2;
 
-	if (stack_length(ps->b) < 2)
+	if (ft_dll_size(ps->b) < 2)
 		return ;
 	n1 = ps->b;
 	n2 = ps->b->next;

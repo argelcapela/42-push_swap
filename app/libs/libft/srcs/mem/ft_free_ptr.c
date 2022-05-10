@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_free_ptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 03:11:26 by acapela-          #+#    #+#             */
-/*   Updated: 2022/01/22 03:57:06 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/10 20:46:33 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"libft.h"
+#include	<libft.h>
 
 void	ft_free_ptr(void **ptr)
 {
