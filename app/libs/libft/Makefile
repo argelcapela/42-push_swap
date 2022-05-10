@@ -31,7 +31,7 @@ SRCS_FILES+=	cvt/ft_atoi.c \
 SRCS_FILES+=	dll/ft_dll_is_sorted.c \
 				dll/ft_dll_last.c \
 				dll/ft_dll_size.c \
-				dll/ft_dll_free
+				dll/ft_dll_free.c
 
 SRCS_FILES+=	lst/ft_lstadd_front.c \
 				lst/ft_lstadd_back.c \

@@ -69,3 +69,11 @@ fclean:	clean
 re:
 	@make fclean && make all
 	@echo "\033[1;32mRE EXECUTED SUCCESFULY!\033[0m"
+
+thundred:
+	@./push_swap `ruby -e "puts (0..99).to_a.shuffle.join(' ')"`
+	@echo "\nmovements (limit 700): " && ./push_swap `ruby -e "puts (0..99).to_a.shuffle.join(' ')"` | wc -l
+
+t5hundred:
+	@./push_swap `ruby -e "puts (0..499).to_a.shuffle.join(' ')"`
+	@echo "\nmovements (limit 5500): " && ./push_swap `ruby -e "puts (0..499).to_a.shuffle.join(' ')"` | wc -l
