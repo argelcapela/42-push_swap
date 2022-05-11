@@ -6,14 +6,14 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/14 05:16:59 by idavoli-          #+#    #+#             */
-/*   Updated: 2022/05/06 20:51:37 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:52:59 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../libs/libft/src/libft.h"
+# include "../libft/src/libft.h"
 
 typedef struct s_idxd
 {

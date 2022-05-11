@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/05 16:28:19 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/10 21:56:46 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ void	pa(t_push_swap *ps)
 		tmp->next = ps->a;
 		ps->a = tmp;
 	}
+	ps->a_size++;
+	ps->b_size--;
 	ft_putstr_fd("pa\n", 1);
 }

@@ -7,7 +7,7 @@ CFLAGS = -g3 -Wall -Wextra -Werror
 
 VALGRIND = valgrind --track-origins=yes --leak-check=full --show-leak-kinds=all -s
 
-LIBFT = libs/libft/libft.a
+LIBFT = libft/libft.a
 
 NAME = push_swap
 SRC_DIR = src
@@ -93,7 +93,7 @@ $(OBJ_DIR_BONUS)/%.o: $(SRC_DIR_BONUS)/%.c
 all: $(NAME)
 
 $(NAME): $(OBJ_DIR) $(OBJ) $(HEADER)
-	@make -C ./libs/libft
+	@make -C ./libft
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(LIBFT)
 
 $(OBJ_DIR):

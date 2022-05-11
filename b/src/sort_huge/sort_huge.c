@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 10:34:52 by idavoli-          #+#    #+#             */
-/*   Updated: 2022/05/06 21:21:33 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/10 17:43:28 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,17 +75,7 @@ static void	bring_smaller_to_top(t_push_swap *ps)
 
 void	sort_huge(t_push_swap *ps)
 {
-	full_b(ps); // passa tudo, menor e maior fica
+	full_b(ps);
 	move_pa_cheapers(ps);
 	bring_smaller_to_top(ps);
 }
-
-A                 B
----              ----
-2 - 0  -  0
-1 - 10 -  1
-4 - 17 -  2
-3 - 24 -  3
-0 - 75 -  4
-
-

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   sort_huge_util.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: idavoli- <idavoli-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:05:25 by idavoli-          #+#    #+#             */
-/*   Updated: 2022/05/04 14:29:20 by idavoli-         ###   ########.fr       */
+/*   Updated: 2022/05/10 22:28:51 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+// ele calcula quantos r eu preciso dar até um node de [b específico] chegar até o topo e qual a operação mais rápida
 
 static void	cost_stack_b(t_push_swap *ps, t_dlist *b_node, t_costpa *costpa)
 {
@@ -35,6 +36,9 @@ static void	cost_stack_b(t_push_swap *ps, t_dlist *b_node, t_costpa *costpa)
 		costpa->op_b = "rb";
 	}
 }
+
+// Ele calcula quantos r eu preciso dar em A até encontrar um node que o valor seja maior que o primeiro b, e o anterior seja menor, ou seja, quando eu der
+//push e o node_b ir para em cima, eu não desordenei a minha stack_a.
 
 static void	cost_stack_a(t_push_swap *ps, t_dlist *b_node, t_costpa *costpa)
 {
