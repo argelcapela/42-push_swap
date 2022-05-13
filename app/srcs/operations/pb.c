@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/10 21:57:01 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/12 21:29:04 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,17 @@ void	pb(t_push_swap *ps)
 		ps->a = ps->a->next;
 		ps->b = tmp;
 		tmp->next = NULL;
+		tmp->previous = NULL;
 	}
 	else
 	{
 		tmp = ps->a;
 		ps->a = ps->a->next;
+		ps->b->previous = tmp;
 		tmp->next = ps->b;
 		ps->b = tmp;
+		ps->a->previous = NULL;
+		ps->a->next->previous = ps->a;
 	}
 	ps->a_size--;
 	ps->b_size++;

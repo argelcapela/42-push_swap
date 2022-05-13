@@ -21,7 +21,7 @@ SRCS_FILES= 	chr/ft_isalnum.c \
 				chr/ft_isprint.c \
 				chr/ft_tolower.c \
 				chr/ft_toupper.c\
-				
+
 SRCS_FILES+=	cvt/ft_atoi.c \
 				cvt/ft_itoa.c \
 				cvt/ft_chr_to_str.c \
@@ -31,7 +31,8 @@ SRCS_FILES+=	cvt/ft_atoi.c \
 SRCS_FILES+=	dll/ft_dll_is_sorted.c \
 				dll/ft_dll_last.c \
 				dll/ft_dll_size.c \
-				dll/ft_dll_free.c
+				dll/ft_dll_free.c \
+				dll/ft_dll_printv.c
 
 SRCS_FILES+=	lst/ft_lstadd_front.c \
 				lst/ft_lstadd_back.c \
@@ -102,7 +103,7 @@ SRCS_FILES+=	str/ft_split.c \
 				str/ft_strjoin_free.c \
 				str/ft_str_replace_all.c \
 				str/ft_first_ocurrence.c \
-				str/ft_last_ocurrence.c 
+				str/ft_last_ocurrence.c
 
 SRCS = 			$(addprefix $(SRCS_DIR)/, $(SRCS_FILES))
 OBJS =          $(SRCS:$(SRCS_DIR)/%.c=$(OBJS_DIR)/%.o)
@@ -111,7 +112,7 @@ $(OBJS_DIR)/%.o:	$(SRCS_DIR)/%.c
 
 all:	$(NAME)
 
-$(NAME):	$(OBJS_DIR) $(OBJS) 
+$(NAME):	$(OBJS_DIR) $(OBJS)
 	$(AR) $(NAME) $(OBJS) $(HEADER)
 	@echo "\033[1;32mMANDATORY COMPILED SUCCESFULY!\033[0m"
 

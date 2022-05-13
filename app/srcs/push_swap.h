@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/10 22:08:11 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/12 22:51:41 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,26 @@
 # define             FF 0xFFFFFFF
 
 /*  s (structs) */
-typedef struct s_cost_pa
-{
-	int		n_op_a;
-	char	*op_a;
-	int		n_op_b;
-	char	*op_b;
-}	t_cost_pa;
-
 typedef struct s_push_swap
 {
-	struct s_dll		*a;
-	struct s_dll		*b;
+	t_dll		*a;
+	t_dll		*b;
 	int					argc;
 	char				**argv;
 	int					group_size;
 	int					a_size;
 	int					b_size;
-	t_cost_pa			*cheaperst;
+	char				*op_a;
+	char				*op_b;
+	char				*tmp_op_a;
+	char				*tmp_op_b;
+	int					n_op_a;
+	int					n_op_b;
+	int					tmp_n_op_a;
+	int					tmp_n_op_b;
+	int					tmp_lower_n_op_a_b;
+	int					distance_until_top_a;
+	int					distance_until_top_b;
 }	t_push_swap;
 
 // operations

@@ -1,7 +1,7 @@
 .PHONY: all clean fclean re
 
 CC =            clang
-CFLAGS =		-Wall -Wextra -Werror -ggdb3
+CFLAGS = -Wall -Wextra -Werror -ggdb3
 AR =            ar -rcs
 RM =            rm -rfd
 
@@ -73,6 +73,10 @@ re:
 tfive: $(NAME)
 	@./push_swap `ruby -e "puts (0..11).to_a.shuffle.join(' ')"`
 	@echo "\n5 numbers test - movements (limit 12): " && ./push_swap `ruby -e "puts (0..4).to_a.shuffle.join(' ')"` | wc -l
+
+tten: $(NAME)
+	@./push_swap `ruby -e "puts (0..9).to_a.shuffle.join(' ')"`
+	@echo "\n10 numbers test - movements: " && ./push_swap `ruby -e "puts (0..9).to_a.shuffle.join(' ')"` | wc -l
 
 thundred: $(NAME)
 	@./push_swap `ruby -e "puts (0..99).to_a.shuffle.join(' ')"`

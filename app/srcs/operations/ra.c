@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/05 16:28:24 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/12 23:13:44 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@ void	ra(t_push_swap *ps)
 	t_dll	*second;
 	t_dll	*last;
 
-	if (ps->a == NULL)
-		return ;
-	first = ps->a;
-	second = ps->a->next;
-	last = ps->a;
-	while (last->next != NULL)
-		last = last->next;
-	last->next = first;
-	first->next = NULL;
-	ps->a = second;
-	ft_putstr_fd("ra\n", 1);
+	if (ps->a_size >= 2)
+	{
+		first = ps->a;
+		second = ps->a->next;
+		last = ps->a;
+		while (last->next != NULL)
+			last = last->next;
+		last->next = first;
+		first->previous = last;
+		first->next = NULL;
+		ps->a = second;
+		ps->a->previous = NULL;
+		ft_putstr_fd("ra\n", 1);
+	}
 }

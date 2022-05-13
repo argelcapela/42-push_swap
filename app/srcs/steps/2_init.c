@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 01:45:26 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/10 22:07:40 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:59:07 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,13 +81,16 @@ t_push_swap	*init(int argc, char **argv)
 	t_push_swap	*ps;
 
 	ps = (t_push_swap *) malloc(sizeof(t_push_swap));
-	ps->cheaperst = (t_cost_pa *) malloc(sizeof(t_cost_pa));
 	ps->argc = argc;
 	ps->argv = argv;
 	ps->a_size = ps->argc - 1;
 	ps->b_size = 0;
-	fill_a(ps);
 	ps->b = NULL;
+	ps->op_a = ft_strdup("");
+	ps->op_b = ft_strdup("");
+	ps->n_op_a = ps->a_size;
+	ps->n_op_b = 0;
+	fill_a(ps);
 	sort_indexes(&(ps->a));
 	return (ps);
 }
