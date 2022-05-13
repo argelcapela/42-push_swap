@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/12 22:51:41 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 15:18:26 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ typedef struct s_push_swap
 	int					b_size;
 	char				*op_a;
 	char				*op_b;
-	char				*tmp_op_a;
-	char				*tmp_op_b;
 	int					n_op_a;
 	int					n_op_b;
+	char				*tmp_op_a;
+	char				*tmp_op_b;
 	int					tmp_n_op_a;
 	int					tmp_n_op_b;
 	int					tmp_lower_n_op_a_b;

@@ -75,8 +75,8 @@ tfive: $(NAME)
 	@echo "\n5 numbers test - movements (limit 12): " && ./push_swap `ruby -e "puts (0..4).to_a.shuffle.join(' ')"` | wc -l
 
 tten: $(NAME)
-	@./push_swap `ruby -e "puts (0..9).to_a.shuffle.join(' ')"`
-	@echo "\n10 numbers test - movements: " && ./push_swap `ruby -e "puts (0..9).to_a.shuffle.join(' ')"` | wc -l
+	@./push_swap 0 7 3 1 2 5 8 4 6 9
+	@echo "\n10 numbers test - movements: " && ./push_swap 0 7 3 1 2 5 8 4 6 9 | wc -l
 
 thundred: $(NAME)
 	@./push_swap `ruby -e "puts (0..99).to_a.shuffle.join(' ')"`
