@@ -163,3 +163,14 @@ fclean_b:	clean_b
 re_b:
 	@make fclean_b && make bonus
 	@echo "\033[1;32mRE_B EXECUTED SUCCESFULY!\033[0m"
+
+fclean_all:	clean clean_b
+	make fclean -C $(LIBFT_DIR)
+	find -name '$(NAME)' -delete
+	find -name '$(NAME_B)' -delete
+	@echo "\033[1;32mFCLEAN AND FCLEAN_B EXECUTED SUCCESFULY!\033[0m"
+
+re_all:
+	@make fclean && make
+	@make fclean_b && make bonus
+	@echo "\033[1;32mRE AND RE_B EXECUTED SUCCESFULY!\033[0m"

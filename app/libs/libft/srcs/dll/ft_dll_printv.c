@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 14:08:10 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 21:35:05 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_dll_printv(t_dll *stack, char *title)
 	ft_printf("%s:\n", title);
 		while (head->next != NULL)
 		{
-			ft_printf("[%d] - VALUE: %d", head->index, head->value);
+			ft_printf("%s [%d] - VALUE: %d", head->op_name, head->index, head->value);
 			if (head->previous)
 				ft_printf("\t\t- PREV: %d",  head->previous->value);
 			else
@@ -35,7 +35,7 @@ void	ft_dll_printv(t_dll *stack, char *title)
 				ft_printf("\t\t NEXT: NULO!");
 			head = head->next;
 		}
-			ft_printf("[%d] - VALUE: %d", head->index, head->value);
+			ft_printf("%s [%d] - VALUE: %d", head->op_name, head->index, head->value);
 			if (head->previous)
 				ft_printf("\t\t- PREV: %d",  head->previous->value);
 			else
