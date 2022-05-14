@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 20:34:46 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/12 17:42:52 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 16:48:53 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct s_dll
 	struct s_dll		*next;
 	int					index;
 	int					value;
+	char				*op_name;
 }	t_dll;
 
 int		ft_dll_size(t_dll *stack);

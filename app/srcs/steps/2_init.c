@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 01:45:26 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 15:19:11 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 16:54:02 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,12 @@ t_push_swap	*init(int argc, char **argv)
 	ps->argv = argv;
 	ps->a_size = ps->argc - 1;
 	ps->b_size = 0;
+	ps->ops_size = 0;
 	ps->b = NULL;
-
 	ps->op_a = ft_strdup("");
 	ps->op_b = ft_strdup("");
 	ps->tmp_op_a = ft_strdup("");
 	ps->tmp_op_b = ft_strdup("");
-
 	fill_a(ps);
 	sort_indexes(&(ps->a));
 	return (ps);

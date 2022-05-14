@@ -8,6 +8,9 @@ RM =            rm -rfd
 LIBFT_DIR = 	libs/libft
 LIBFT.A =       $(LIBFT_DIR)/libft.a
 
+
+# Mandatory
+
 SRCS_DIR =   	srcs
 OBJS_DIR =   	$(SRCS_DIR)/.objs
 HEADER_DIR =   ./srcs
@@ -35,7 +38,11 @@ SRCS_FILES +=	sort/two.c \
 SRCS_FILES +=	steps/1_parse_error.c \
 				steps/2_init.c \
 				steps/3_sort.c \
-				steps/4_clear.c
+				steps/4_impro_effi.c \
+				steps/5_print_ops.c \
+				steps/6_clear.c
+
+SRCS_FILES +=	utils/op_add_back.c
 
 SRCS_FILES +=	push_swap.c
 
@@ -56,6 +63,7 @@ $(OBJS_DIR):
 	mkdir -p $(OBJS_DIR)/operations
 	mkdir -p $(OBJS_DIR)/sort
 	mkdir -p $(OBJS_DIR)/steps
+	mkdir -p $(OBJS_DIR)/utils
 
 clean:
 	$(RM) $(OBJS_DIR)
@@ -85,3 +93,73 @@ thundred: $(NAME)
 tfhundred: $(NAME)
 	@./push_swap `ruby -e "puts (0..499).to_a.shuffle.join(' ')"`
 	@echo "\n500 numbers test - movements (limit 5500): " && ./push_swap `ruby -e "puts (0..499).to_a.shuffle.join(' ')"` | wc -l
+
+# Bonus
+
+SRCS_B_DIR =   	srcs_b
+OBJS_B_DIR =   	$(SRCS_B_DIR)/.objs_b
+HEADER_B_DIR =  ./srcs_b
+HEADER_B =		$(HEADER_B_DIR)/checker.h
+NAME_B =		checker
+
+SRCS_B_FILES +=	operations/pa.c \
+				operations/pb.c \
+				operations/ra.c \
+				operations/rb.c \
+				operations/rr.c \
+				operations/rra.c \
+				operations/rrb.c \
+				operations/rrr.c \
+				operations/sa.c \
+				operations/sb.c \
+				operations/ss.c
+
+SRCS_B_FILES +=	sort/two.c \
+				sort/three.c \
+				sort/five.c \
+				sort/one_hundred.c \
+				sort/five_hundred.c
+
+SRCS_B_FILES +=	steps/1_parse_error.c \
+				steps/2_init.c \
+				steps/3_receive_ops.c \
+				steps/4_execute_ops.c \
+				steps/5_check_if_ops_sort.c \
+				steps/6_clear.c
+
+SRCS_B_FILES +=	utils/op_add_back.c \
+				utils/print_ops.c
+
+SRCS_B_FILES +=	checker.c
+
+SRCS_B = 		$(addprefix $(SRCS_B_DIR)/, $(SRCS_B_FILES))
+OBJS_B =        $(SRCS_B:$(SRCS_B_DIR)/%.c=$(OBJS_B_DIR)/%.o)
+$(OBJS_B_DIR)/%.o:	$(SRCS_B_DIR)/%.c
+	$(CC) -I$(HEADER_B_DIR) $(CFLAGS) -c $< -o $@
+
+bonus:	$(NAME_B)
+
+$(NAME_B):	$(OBJS_B_DIR) $(OBJS_B) $(HEADER_B)
+	make -C $(LIBFT_DIR)
+	$(CC) -I$(HEADER_B_DIR) $(CFLAGS) $(OBJS_B) -o $(NAME_B) $(LIBFT.A)
+	@echo "\033[1;32mBONUS COMPILED SUCCESFULY!\033[0m"
+
+$(OBJS_B_DIR):
+	mkdir -p $(OBJS_B_DIR)
+	mkdir -p $(OBJS_B_DIR)/operations
+	mkdir -p $(OBJS_B_DIR)/sort
+	mkdir -p $(OBJS_B_DIR)/steps
+	mkdir -p $(OBJS_B_DIR)/utils
+
+clean_b:
+	$(RM) $(OBJS_B_DIR)
+	@echo "\033[1;32mCLEAN_B EXECUTED SUCCESFULY!\033[0m"
+
+fclean_b:	clean_b
+	make fclean -C $(LIBFT_DIR)
+	find -name '$(NAME_B)' -delete
+	@echo "\033[1;32mFCLEAN_B EXECUTED SUCCESFULY!\033[0m"
+
+re_b:
+	@make fclean_b && make bonus
+	@echo "\033[1;32mRE_B EXECUTED SUCCESFULY!\033[0m"

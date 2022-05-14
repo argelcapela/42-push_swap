@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/05 16:28:42 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 17:10:21 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	sb(t_push_swap *ps)
 	tmp = ps->b->value;
 	ps->b->value = ps->b->next->value;
 	ps->b->next->value = tmp;
-	ft_putstr_fd("sb\n", 1);
+	op_add_back(ps, "sb");
 }
