@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   4_execute_ops.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/14 03:06:33 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 08:26:47 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	execute_op(t_push_swap *ps, char *op)
 		rrb(ps);
 	if (ft_strncmp(op, "rrr", 3) == 0)
 		rrr(ps);
-	 if (ft_strncmp(op, "pa", 2) == 0)
+	if (ft_strncmp(op, "pa", 2) == 0)
 		pa(ps);
 	if (ft_strncmp(op, "pb", 2) == 0)
 		pb(ps);
