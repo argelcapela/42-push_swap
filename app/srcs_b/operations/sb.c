@@ -20,9 +20,10 @@ void	sb(t_push_swap *ps)
 {
 	int	tmp;
 
-	if (ft_dll_size(ps->b) <= 1)
-		return ;
-	tmp = ps->b->value;
-	ps->b->value = ps->b->next->value;
-	ps->b->next->value = tmp;
+	if (ps->b_size >= 2)
+	{
+		tmp = ps->b->value;
+		ps->b->value = ps->b->next->value;
+		ps->b->next->value = tmp;
+	}
 }

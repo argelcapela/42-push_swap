@@ -22,7 +22,6 @@ int	ft_dll_is_sorted(t_dll *stack)
 		stack = stack->next;
 		if (stack->value < tmp)
 			return (0);
-		tmp = stack->value;
 	}
 	return (1);
 }

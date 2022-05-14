@@ -117,10 +117,9 @@ SRCS_B_FILES +=	operations/pa.c \
 
 SRCS_B_FILES +=	steps/1_parse_error.c \
 				steps/2_init.c \
-				steps/3_receive_ops.c \
-				steps/4_execute_ops.c \
-				steps/5_check_if_ops_sort.c \
-				steps/6_clear.c
+				steps/3_execute_ops.c \
+				steps/4_check_if_ops_sort.c \
+				steps/5_clear.c
 
 SRCS_B_FILES +=	utils/ft_dll_op_add_back.c
 

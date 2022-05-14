@@ -30,5 +30,11 @@ void	move_to_b(t_push_swap *ps)
 			rb(ps);
 		if (ft_dll_is_sorted(ps->a))
 			break ;
+	// system("clear");
+	// ft_printf("*******movimento ***********\n");
+	// ft_dll_printv(ps->a, "A:");
+	// ft_printf("\n\n");
+	// ft_dll_printv(ps->b, "B:");
+	// sleep(2);
 	}
 }

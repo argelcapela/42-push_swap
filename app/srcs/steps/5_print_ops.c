@@ -11,15 +11,17 @@
 /* ************************************************************************** */
 
 #include <push_swap.h>
+#include <stdio.h>
 
 void	print_ops(t_push_swap *ps)
 {
 	t_dll	*tmp;
 
 	tmp = ps->ops;
-	while (tmp)
+	while (ps->ops_size > 0)
 	{
-		ft_printf("%s\n", tmp->op_name);
+		printf("%s\n", tmp->op_name);
 		tmp = tmp->next;
+		ps->ops_size--;
 	}
 }

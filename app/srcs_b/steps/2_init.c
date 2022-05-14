@@ -28,6 +28,7 @@ static int	fill_a(t_push_swap *ps)
 	tmp_dll->previous = NULL;
 	tmp_dll->value = atoi(ps->argv[i]);
 	tmp_dll->index = -1;
+	tmp_dll->next = NULL;
 	while (++i < ps->argc)
 	{
 		tmp_dll->next = (t_dll *) malloc(sizeof(t_dll));
@@ -38,42 +39,6 @@ static int	fill_a(t_push_swap *ps)
 		tmp_dll->index = -1;
 	}
 	return (0);
-}
-
-static t_dll	*get_next_smallest(t_dll **stack)
-{
-	int		has_index;
-	t_dll	*smallest;
-	t_dll	*head;
-
-	has_index = 0;
-	smallest = NULL;
-	head = *stack;
-	while (head)
-	{
-		if ((head->index == -1) && (has_index == 0
-				|| head->value < smallest->value))
-		{
-			smallest = head;
-			has_index = 1;
-		}
-		head = head->next;
-	}
-	return (smallest);
-}
-
-static void	sort_indexes(t_dll **stack)
-{
-	t_dll	*head;
-	int		i;
-
-	i = 0;
-	head = get_next_smallest(stack);
-	while (head)
-	{
-		head->index = i++;
-		head = get_next_smallest(stack);
-	}
 }
 
 t_push_swap	*init(int argc, char **argv)
@@ -89,6 +54,5 @@ t_push_swap	*init(int argc, char **argv)
 	fill_a(ps);
 	ps->b = NULL;
 	ps->ops = NULL;
-	sort_indexes(&(ps->a));
 	return (ps);
 }

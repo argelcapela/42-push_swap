@@ -19,9 +19,9 @@ void	ft_dll_op_add_back(t_push_swap *ps, char *op_name)
 	if (ps->ops == NULL)
 	{
 		ps->ops = (t_dll *) malloc(sizeof(t_dll));
-		ps->ops->op_name = op_name;
 		ps->ops->previous = NULL;
 		ps->ops->next = NULL;
+		ps->ops->op_name = op_name;
 	}
 	else
 	{

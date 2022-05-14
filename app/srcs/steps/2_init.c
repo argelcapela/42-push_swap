@@ -28,6 +28,7 @@ static int	fill_a(t_push_swap *ps)
 	tmp_dll->previous = NULL;
 	tmp_dll->value = atoi(ps->argv[i]);
 	tmp_dll->index = -1;
+	tmp_dll->next = NULL;
 	while (++i < ps->argc)
 	{
 		tmp_dll->next = (t_dll *) malloc(sizeof(t_dll));

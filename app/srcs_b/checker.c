@@ -6,7 +6,7 @@
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/14 08:26:24 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 17:25:59 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,6 @@ int	main(int argc, char **argv)
 	else if (parse_error(argc, argv) == 2)
 		exit(1);
 	ps = init(argc, argv);
-	if (receive_ops(ps) == 1)
-	{
-		clear(ps);
-		exit(1);
-	}
 	execute_ops(ps);
 	check_if_ops_sort(ps);
 	clear(ps);
