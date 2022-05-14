@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_add_back.c                                      :+:      :+:    :+:   */
+/*   bring_smaller_to_top.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 17:54:54 by acapela-         ###   ########.fr       */
+/*   Created: 2022/05/13 23:28:26 by acapela-          #+#    #+#             */
+/*   Updated: 2022/05/13 23:28:32 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <checker.h>
+#include <push_swap.h>
 
-void	op_add_back(t_push_swap *ps, char *op_name)
+void	bring_smaller_to_top(t_push_swap *ps)
 {
-	t_dll *op;
-	t_dll *last;
+	t_dll	*tmp;
+	int		i;
 
-	op = (t_dll *) malloc(sizeof(t_dll));
-	op->op_name = op_name;
-	if (ps->ops_size)
+	i = 0;
+	tmp = ps->a;
+	while (tmp && tmp->index != (ps->a_size - 1))
 	{
-		last = ft_dll_last(ps->ops);
-		last->next = op;
-		op->previous = last;
+		i++;
+		tmp = tmp->next;
 	}
-	else
-		ps->ops = op;
-	ps->ops_size++;
+	while ((i + 1) > 0)
+	{
+		ra(ps);
+		i--;
+	}
 }

@@ -23,11 +23,5 @@ void	sort(t_push_swap *ps)
 	else if (ps->a_size > 3 && ps->a_size <= 5)
 		five(ps);
 	else
-		five_hundred(ps);
+		fit_sort(ps);
 }
-
-	// else if (ps->a_size > 5 && ps->a_size <= 100)
-	// {
-	// 	ps->group_size = ps->argc / 200 * 5 + 10;
-	// 	one_hundred(ps);
-	// }

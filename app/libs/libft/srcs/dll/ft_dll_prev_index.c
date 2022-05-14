@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 23:10:47 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 00:20:08 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 int	ft_dll_prev_index(t_dll *a, t_dll *a_iterator)
 {
 	if (a_iterator->index == a->index)
-		return(ft_dll_last(a)->index);
+		return (ft_dll_last(a)->index);
 	else
 	{
 		return (a_iterator->previous->index);

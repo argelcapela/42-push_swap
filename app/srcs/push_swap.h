@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 23:23:19 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 01:42:56 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ typedef struct s_push_swap
 	int					b_size;
 	char				*op_a;
 	char				*op_b;
-	int					n_op_a;
-	int					n_op_b;
 	char				*tmp_op_a;
 	char				*tmp_op_b;
+	int					n_op_a;
+	int					n_op_b;
 	int					tmp_n_op_a;
 	int					tmp_n_op_b;
 	int					tmp_lower_n_op_a_b;
-	int					r_u_b_first_node_fits_a_without_messing_up_sorting;
-	int					rotations_until_stack_b_top;
+	int					r_u_f_a;
+	int					r_u_top_b;
 
 }	t_push_swap;
 
@@ -68,19 +68,20 @@ void		two(t_push_swap *ps);
 void		two2(t_push_swap *ps);
 void		three(t_push_swap *ps);
 void		five(t_push_swap *ps);
-void		one_hundred(t_push_swap *ps);
-void		five_hundred(t_push_swap *ps);
+void		fit_sort(t_push_swap *ps);
 
 // steps
-int				parse_error(int argc, char **argv);
-t_push_swap		*init(int argc, char **argv);
-void			sort(t_push_swap *ps);
-void			improve_efficiency(t_push_swap *ps);
-void			print_ops(t_push_swap *ps);
-void			clear(t_push_swap *ps);
+int			parse_error(int argc, char **argv);
+t_push_swap	*init(int argc, char **argv);
+void		sort(t_push_swap *ps);
+void		improve_efficiency(t_push_swap *ps);
+void		print_ops(t_push_swap *ps);
+void		clear(t_push_swap *ps);
 
 // utils
-void			ft_dll_op_add_back(t_push_swap *ps, char *op_name);
+void		ft_dll_op_add_back(t_push_swap *ps, char *op_name);
+void		move_to_b(t_push_swap *ps);
+void		bring_smaller_to_top(t_push_swap *ps);
 
 // ps
 int			push_swap(int argc, char **argv);

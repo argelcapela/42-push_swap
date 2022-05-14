@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 20:34:46 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 23:23:38 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 00:17:46 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 
 /* pow */
 # include <math.h>
+
+/* ft_printf resources */
+# include "rw/ft_printf/ft_printf.h"
 
 // a (array)
 void	ft_free_array(void **array);
@@ -63,7 +66,6 @@ void	ft_dll_printv(t_dll *stack, char *title);
 int		ft_dll_biggest(t_dll *stack);
 int		ft_dll_prev_index(t_dll *a, t_dll *a_iterator);
 
-
 // lst (list)
 typedef struct s_list
 {
@@ -98,10 +100,12 @@ void	*ft_calloc(size_t num, size_t size);
 void	ft_free_ptr(void **ptr);
 
 // rw (read and write)
-# include "rw/ft_printf/ft_printf.h"
 # define FD 1
+
 # define TOKENIZATION_NULL    "___BANANA0_"
+
 # define TOKENIZATION_PERCENT "___BANANA1_"
+
 char	*get_next_line(int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);

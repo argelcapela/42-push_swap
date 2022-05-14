@@ -32,8 +32,7 @@ SRCS_FILES +=	operations/pa.c \
 SRCS_FILES +=	sort/two.c \
 				sort/three.c \
 				sort/five.c \
-				sort/one_hundred.c \
-				sort/five_hundred.c
+				sort/fit_sort.c
 
 SRCS_FILES +=	steps/1_parse_error.c \
 				steps/2_init.c \
@@ -42,7 +41,9 @@ SRCS_FILES +=	steps/1_parse_error.c \
 				steps/5_print_ops.c \
 				steps/6_clear.c
 
-SRCS_FILES +=	utils/ft_dll_op_add_back.c
+SRCS_FILES +=	utils/ft_dll_op_add_back.c \
+				utils/move_to_b.c \
+				utils/bring_smaller_to_top.c
 
 SRCS_FILES +=	push_swap.c
 
@@ -114,12 +115,6 @@ SRCS_B_FILES +=	operations/pa.c \
 				operations/sb.c \
 				operations/ss.c
 
-SRCS_B_FILES +=	sort/two.c \
-				sort/three.c \
-				sort/five.c \
-				sort/one_hundred.c \
-				sort/five_hundred.c
-
 SRCS_B_FILES +=	steps/1_parse_error.c \
 				steps/2_init.c \
 				steps/3_receive_ops.c \
@@ -127,8 +122,7 @@ SRCS_B_FILES +=	steps/1_parse_error.c \
 				steps/5_check_if_ops_sort.c \
 				steps/6_clear.c
 
-SRCS_B_FILES +=	utils/op_add_back.c \
-				utils/print_ops.c
+SRCS_B_FILES +=	utils/ft_dll_op_add_back.c
 
 SRCS_B_FILES +=	checker.c
 

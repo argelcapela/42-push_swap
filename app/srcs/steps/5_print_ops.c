@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 17:15:54 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 02:41:27 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	print_ops(t_push_swap *ps)
 {
-	t_dll *tmp;
+	t_dll	*tmp;
 
 	tmp = ps->ops;
 	while (tmp)

@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 23:21:18 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 01:34:58 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,22 @@
 
 void	ft_dll_op_add_back(t_push_swap *ps, char *op_name)
 {
-	t_dll *op;
-	t_dll *last;
+	t_dll	*last;
 
-	op = (t_dll *) malloc(sizeof(t_dll));
-	op->op_name = op_name;
-	if (ps->ops_size)
+	if (ps->ops == NULL)
 	{
-		last = ft_dll_last(ps->ops);
-		last->next = op;
-		op->previous = last;
+		ps->ops = (t_dll *) malloc(sizeof(t_dll));
+		ps->ops->op_name = op_name;
+		ps->ops->previous = NULL;
+		ps->ops->next = NULL;
 	}
 	else
-		ps->ops = op;
-	ft_dll_last(ps->ops)->next = NULL;
+	{
+		last = ft_dll_last(ps->ops);
+		last->next = (t_dll *) malloc(sizeof(t_dll));
+		last->next->previous = last;
+		last->next->op_name = op_name;
+		last->next->next = NULL;
+	}
 	ps->ops_size++;
 }

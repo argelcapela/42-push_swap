@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   3_identify_errors.c                                :+:      :+:    :+:   */
+/*   1_parse_error.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/05 17:01:21 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 01:38:44 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static int	check_if_value_is_not_integer(char **argv)
 	is_not_digit = 0;
 	while (argv[++i])
 	{
-		tmp = ft_strdup(argv[i]);
+		tmp = argv[i];
 		while (tmp[++y])
 		{
 			if (tmp[y] != '-' && ft_isdigit(tmp[y]) == 0)
@@ -62,7 +62,6 @@ static int	check_if_value_is_not_integer(char **argv)
 		y = -1;
 		if (is_not_digit > 0)
 			return (1);
-		ft_free_ptr((void *) &tmp);
 	}
 	return (0);
 }

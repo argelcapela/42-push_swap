@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   7_sort_more_than_5_numbers.c                       :+:      :+:    :+:   */
+/*   hacksaw_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/06 19:05:49 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 01:42:19 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	back_to_a(t_push_swap *ps);
 static int	get_biggest_value_in_b(t_dll *head, int *biggest);
 
-void	one_hundred(t_push_swap *ps)
+void	hacksaw_sort(t_push_swap *ps)
 {
 	int	i;
 

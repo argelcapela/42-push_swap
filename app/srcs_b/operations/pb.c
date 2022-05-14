@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 18:19:06 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 00:26:18 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 /* pb: Take the first element at the top of a and put it at the top of a.
 Do nothing if a is empty. */
 
+void	if_b_is_null(t_push_swap *ps, t_dll *tmp)
+{
+	tmp = ps->a;
+	ps->a = ps->a->next;
+	ps->b = tmp;
+	tmp->next = NULL;
+	tmp->previous = NULL;
+}
+
 void	pb(t_push_swap *ps)
 {
 	t_dll	*tmp;
 
-	tmp = NULL;
 	tmp = ps->b;
-	if (ps->a == NULL && ps->b == NULL)
+	if (!ps->a_size)
 		return ;
-	else if (ps->a == NULL)
-		return ;
-	else if (tmp == NULL)
-	{
-		tmp = ps->a;
-		ps->a = ps->a->next;
-		ps->b = tmp;
-		tmp->next = NULL;
-		tmp->previous = NULL;
-	}
+	if (tmp == NULL)
+		if_b_is_null(ps, tmp);
 	else
 	{
 		tmp = ps->a;

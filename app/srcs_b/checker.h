@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 21:06:16 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 01:47:35 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,16 @@ void		ss(t_push_swap *ps);
 void		pa(t_push_swap *ps);
 void		pb(t_push_swap *ps);
 
-// sort
-void		two(t_push_swap *ps);
-void		two2(t_push_swap *ps);
-void		three(t_push_swap *ps);
-void		five(t_push_swap *ps);
-void		one_hundred(t_push_swap *ps);
-void		five_hundred(t_push_swap *ps);
-
 // steps
-int				parse_error(int argc, char **argv);
-t_push_swap		*init(int argc, char **argv);
-int				receive_ops(t_push_swap *ps);
-void			execute_ops(t_push_swap *ps);
-void			check_if_ops_sort(t_push_swap *ps);
-void			clear(t_push_swap *ps);
+int			parse_error(int argc, char **argv);
+t_push_swap	*init(int argc, char **argv);
+int			receive_ops(t_push_swap *ps);
+void		execute_ops(t_push_swap *ps);
+void		check_if_ops_sort(t_push_swap *ps);
+void		clear(t_push_swap *ps);
 
 // utils
-void			op_add_back(t_push_swap *ps, char *op_name);
-void			print_ops(t_push_swap *ps);
+void		ft_dll_op_add_back(t_push_swap *ps, char *op_name);
 
 // ps
 int			push_swap(int argc, char **argv);
