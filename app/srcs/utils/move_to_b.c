@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 23:27:01 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/14 00:03:23 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 15:43:09 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,5 @@ void	move_to_b(t_push_swap *ps)
 			rb(ps);
 		if (ft_dll_is_sorted(ps->a))
 			break ;
-	// system("clear");
-	// ft_printf("*******movimento ***********\n");
-	// ft_dll_printv(ps->a, "A:");
-	// ft_printf("\n\n");
-	// ft_dll_printv(ps->b, "B:");
-	// sleep(2);
 	}
 }
