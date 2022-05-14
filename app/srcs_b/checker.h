@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/14 01:47:35 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 22:42:56 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void		pb(t_push_swap *ps);
 int			parse_error(int argc, char **argv);
 t_push_swap	*init(int argc, char **argv);
 int			receive_ops(t_push_swap *ps);
-void		execute_ops(t_push_swap *ps);
+void		execute_ops(t_push_swap *ps, int *error);
 void		check_if_ops_sort(t_push_swap *ps);
 void		clear(t_push_swap *ps);
 

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   4_execute_ops.c                                    :+:      :+:    :+:   */
+/*   3_execute_ops.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 06:44:31 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/14 17:31:59 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 22:40:35 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@ void	execute_op(t_push_swap *ps, char *op)
 
 int	check_ops_input(char *op)
 {
-	if (ft_strncmp(op, "rrr\n", 4) == 0 
-		|| ft_strncmp(op, "rra\n", 4) == 0 
-		|| ft_strncmp(op, "rrb\n", 4) == 0 
-		|| ft_strncmp(op, "rr\n", 3) == 0 
-		|| ft_strncmp(op, "ra\n", 3) == 0 
-		|| ft_strncmp(op, "rb\n", 3) == 0 
-		|| ft_strncmp(op, "sa\n", 3) == 0 
-		|| ft_strncmp(op, "sb\n", 3) == 0 
-		|| ft_strncmp(op, "ss\n", 3) == 0 
-		|| ft_strncmp(op, "pa\n", 3) == 0 
+	if (ft_strncmp(op, "rrr\n", 4) == 0
+		|| ft_strncmp(op, "rra\n", 4) == 0
+		|| ft_strncmp(op, "rrb\n", 4) == 0
+		|| ft_strncmp(op, "rr\n", 3) == 0
+		|| ft_strncmp(op, "ra\n", 3) == 0
+		|| ft_strncmp(op, "rb\n", 3) == 0
+		|| ft_strncmp(op, "sa\n", 3) == 0
+		|| ft_strncmp(op, "sb\n", 3) == 0
+		|| ft_strncmp(op, "ss\n", 3) == 0
+		|| ft_strncmp(op, "pa\n", 3) == 0
 		|| ft_strncmp(op, "pb\n", 3) == 0
 	)
 		return (0);
@@ -60,7 +60,7 @@ int	check_ops_input(char *op)
 	}
 }
 
-void	execute_ops(t_push_swap *ps)
+void	execute_ops(t_push_swap *ps, int *error)
 {
 	char	*op;
 
@@ -68,12 +68,18 @@ void	execute_ops(t_push_swap *ps)
 	while (op)
 	{
 		if (check_ops_input(op) == 0)
+		{
 			execute_op(ps, op);
+			ft_free_ptr((void *) &op);
+		}
 		else
 		{
 			clear(ps);
-			exit(1);
+			*error = 1;
+			break ;
 		}
 		op = get_next_line(0);
 	}
+	ft_free_ptr((void *) &op);
+	get_next_line(-1);
 }

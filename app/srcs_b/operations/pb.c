@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
+/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/14 00:26:18 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/14 22:24:04 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void	pb(t_push_swap *ps)
 		ps->b->previous = tmp;
 		tmp->next = ps->b;
 		ps->b = tmp;
-		ps->a->previous = NULL;
-		ps->a->next->previous = ps->a;
 	}
 	ps->a_size--;
 	ps->b_size++;
