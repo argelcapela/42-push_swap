@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_add_back.c                                      :+:      :+:    :+:   */
+/*   ft_dll_op_add_back.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: acapela- <acapela-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/14 03:08:55 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 23:21:18 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
 
-void	op_add_back(t_push_swap *ps, char *op_name)
+void	ft_dll_op_add_back(t_push_swap *ps, char *op_name)
 {
 	t_dll *op;
 	t_dll *last;

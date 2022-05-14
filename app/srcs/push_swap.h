@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:03:14 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 17:16:49 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 23:23:19 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_push_swap
 	t_dll				*a;
 	t_dll				*b;
 	t_dll				*ops;
+	t_dll				*b_node;
 	int					ops_size;
 	int					argc;
 	char				**argv;
@@ -44,8 +45,9 @@ typedef struct s_push_swap
 	int					tmp_n_op_a;
 	int					tmp_n_op_b;
 	int					tmp_lower_n_op_a_b;
-	int					distance_until_top_a;
-	int					distance_until_top_b;
+	int					r_u_b_first_node_fits_a_without_messing_up_sorting;
+	int					rotations_until_stack_b_top;
+
 }	t_push_swap;
 
 // operations
@@ -78,7 +80,7 @@ void			print_ops(t_push_swap *ps);
 void			clear(t_push_swap *ps);
 
 // utils
-void			op_add_back(t_push_swap *ps, char *op_name);
+void			ft_dll_op_add_back(t_push_swap *ps, char *op_name);
 
 // ps
 int			push_swap(int argc, char **argv);

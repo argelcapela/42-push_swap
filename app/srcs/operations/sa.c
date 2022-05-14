@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 17:10:15 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 23:22:29 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ void	sa(t_push_swap *ps)
 	tmp = ps->a->value;
 	ps->a->value = ps->a->next->value;
 	ps->a->next->value = tmp;
-	op_add_back(ps, "sa");
+	ft_dll_op_add_back(ps, "sa");
 }

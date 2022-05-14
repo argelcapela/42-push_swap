@@ -42,7 +42,7 @@ SRCS_FILES +=	steps/1_parse_error.c \
 				steps/5_print_ops.c \
 				steps/6_clear.c
 
-SRCS_FILES +=	utils/op_add_back.c
+SRCS_FILES +=	utils/ft_dll_op_add_back.c
 
 SRCS_FILES +=	push_swap.c
 

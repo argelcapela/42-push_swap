@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 20:34:46 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 16:48:53 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 23:23:38 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,9 @@ int		ft_dll_is_sorted(t_dll *stack);
 t_dll	*ft_dll_last(t_dll *stack);
 void	ft_dll_free(t_dll *stack);
 void	ft_dll_printv(t_dll *stack, char *title);
-void	ft_dll_printh(t_dll *stack, char *title);
+int		ft_dll_biggest(t_dll *stack);
+int		ft_dll_prev_index(t_dll *a, t_dll *a_iterator);
+
 
 // lst (list)
 typedef struct s_list

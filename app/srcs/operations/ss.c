@@ -6,7 +6,7 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 17:10:28 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 23:22:22 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@ void	ss(t_push_swap *ps)
 {
 	sa(ps);
 	sb(ps);
-	op_add_back(ps, "ss");
+	ft_dll_op_add_back(ps, "ss");
 }

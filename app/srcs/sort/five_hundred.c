@@ -6,25 +6,11 @@
 /*   By: acapela- < acapela-@student.42sp.org.br    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 21:04:25 by acapela-          #+#    #+#             */
-/*   Updated: 2022/05/13 15:26:51 by acapela-         ###   ########.fr       */
+/*   Updated: 2022/05/13 23:13:07 by acapela-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<push_swap.h>
-
-int	ft_dll_biggest(t_dll *stack)
-{
-	int	biggest;
-
-	biggest = 0;
-	while (stack->next != NULL)
-	{
-		if (stack->value > biggest)
-			biggest = stack->value;
-		stack = stack->next;
-	}
-	return (biggest);
-}
 
 static void	move_to_b_divide_two_groups (t_push_swap *ps)
 {
@@ -44,159 +30,112 @@ static void	move_to_b_divide_two_groups (t_push_swap *ps)
 	}
 }
 
-#include <stdio.h>
-int get_prev_by_index(t_dll *a, t_dll *head_a)
+void	count_how_many_rotations_stack_b_needs_until_b_node_arrive_top(t_push_swap *ps)
 {
-	if (head_a->index == a->index)
-		return(ft_dll_last(a)->index);
+	t_dll	*b_iterator;
+
+	ps->rotations_until_stack_b_top = 0;
+	b_iterator = ps->b;
+	while (b_iterator->value != ps->b_node->value)
+	{
+		ps->rotations_until_stack_b_top++;
+		b_iterator = b_iterator->next;
+	}
+	if (ps->rotations_until_stack_b_top > (ps->b_size / 2))
+	{
+		ps->tmp_n_op_b = (ps->b_size - ps->rotations_until_stack_b_top);
+		ps->tmp_op_b = ft_strdup("rrb");
+	}
 	else
 	{
-		return (head_a->previous->index);
+		ps->tmp_n_op_b = ps->rotations_until_stack_b_top;
+		ps->tmp_op_b = ft_strdup("rb");
 	}
+}
+
+void c_r_a_needs_when_execute_pa_b_first_node_fits_a_k_sorted(t_push_swap *ps)
+{
+	int	i;
+	t_dll *a_iterator;
+
+	ps->r_u_b_first_node_fits_a_without_messing_up_sorting = 0;
+	a_iterator = ps->a;
+	i = 0;
+	while (i < ps->a_size)
+	{
+		if (a_iterator->index > ps->b_node->index && ft_dll_prev_index(ps->a, a_iterator) < ps->b_node->index)
+			break;
+		else
+			i++;
+		a_iterator = a_iterator->next;
+	}
+	ps->r_u_b_first_node_fits_a_without_messing_up_sorting = i;
+	if (ps->r_u_b_first_node_fits_a_without_messing_up_sorting > (ps->a_size / 2))
+	{
+		ps->tmp_n_op_a = (ps->a_size - ps->r_u_b_first_node_fits_a_without_messing_up_sorting);
+		ps->tmp_op_a = ft_strdup("rra");
+	}
+	else
+	{
+		ps->tmp_op_a = ft_strdup("ra");
+		ps->tmp_n_op_a = ps->r_u_b_first_node_fits_a_without_messing_up_sorting;
+	}
+}
+
+static void keep_lower_sum_of_n_op_a_and_b(t_push_swap *ps)
+{
+	if ((ps->tmp_n_op_a + ps->tmp_n_op_b) < (ps->n_op_a + ps->n_op_b))
+	{
+		ps->n_op_a = ps->tmp_n_op_a;
+		ps->n_op_b = ps->tmp_n_op_b;
+		ps->op_a = ft_strdup(ps->tmp_op_a);
+		ps->op_b = ft_strdup(ps->tmp_op_b);
+	}
+}
+
+static void execute_operations(t_push_swap *ps)
+{
+	int	n_ops_a;
+	int	n_ops_b;
+
+	n_ops_a = ps->n_op_a;
+	n_ops_b = ps->n_op_b;
+	while (n_ops_a > 0 || n_ops_b > 0)
+	{
+		if (n_ops_a-- > 0)
+		{
+			if (ft_strncmp(ps->op_a, "ra", 2) == 0)
+				ra(ps);
+			else
+				rra(ps);
+		}
+		if (n_ops_b-- > 0)
+		{
+			if (ft_strncmp(ps->op_b, "rb", 2) == 0)
+				rb(ps);
+			else
+				rrb(ps);
+		}
+	}
+	pa(ps);
 }
 
 static void	move_to_a (t_push_swap *ps)
 {
-	//int z = 1;
-	// 1 -> executa enquanto tiver nodes na stack b
-		t_dll	*b_node;
+	ps->b_node = NULL;
 	while (ps->b_size)
 	{
-		//ft_printf("\n\nMOVIMENTO %d ******************************************************\n", z++);
-		// 2-> atribui o tamanho de a b para o noa e nob
-
-
-
 		ps->n_op_a = ps->a_size;
 		ps->n_op_b = ps->b_size;
-///////////////////////// 3-> calcular o que será mais rápido pra passar pra
-
-		b_node = ps->b;
-		while (b_node != NULL)
+		ps->b_node = ps->b;
+		while (ps->b_node != NULL)
 		{
-///////////////////////////// CUSTO DE B
-				t_dll	*head_b;
-
-				ps->distance_until_top_b = 0;
-				head_b = ps->b;
-				while (head_b->value != b_node->value)
-				{
-					ps->distance_until_top_b++;
-					head_b = head_b->next;
-				}
-				if (ps->distance_until_top_b > (ps->b_size / 2))
-				{
-					ps->tmp_n_op_b = (ps->b_size - ps->distance_until_top_b);
-					ps->tmp_op_b = ft_strdup("rrb");
-				}
-				else
-				{
-					ps->tmp_n_op_b = ps->distance_until_top_b;
-					ps->tmp_op_b = ft_strdup("rb");
-				}
-////////////////////////////////////////////////////////////////////////////////
-
-///////////////////////////////// CUSTO DE A
-				int i;
-				t_dll *head_a;
-
-				ps->distance_until_top_a = 0;
-				head_a = ps->a;
-				i = 0;
-
-				while (i < ps->a_size)
-				{
-					if (head_a->index > b_node->index && get_prev_by_index(ps->a, head_a) < b_node->index)
-						break;
-					else
-						i++;
-					head_a = head_a->next;
-				}
-
-				ps->distance_until_top_a = i;
-
-				if (ps->distance_until_top_a > (ps->a_size / 2))
-				{
-					ps->tmp_n_op_a = (ps->a_size - ps->distance_until_top_a);
-					ps->tmp_op_a = ft_strdup("rra");
-				}
-				else
-				{
-					ps->tmp_op_a = ft_strdup("ra");
-					ps->tmp_n_op_a = ps->distance_until_top_a;
-				}
-////////////////////////////////////////////////////////////////////////////
-
-////////////////// GUARDA O MENOR CUSTO
-			// if (first_calc == 1)
-			// {
-			// 	ps->tmp_lower_n_op_a_b = ps->n_op_a + ps->n_op_b;
-			// 	first_calc = 0;
-			// }
-			// else
-			if ((ps->tmp_n_op_a + ps->tmp_n_op_b) < (ps->n_op_a + ps->n_op_b))
-			{
-				ps->n_op_a = ps->tmp_n_op_a;
-				ps->n_op_b = ps->tmp_n_op_b;
-				ps->op_a = ft_strdup(ps->tmp_op_a);
-				ps->op_b = ft_strdup(ps->tmp_op_b);
-			}
-/////////////////////////////////////////////////////////////////////////////
-
-			//ft_printf("\n(%d) O BNODE %d se encaixaria corretamente se: \n", i, b_node->value);
-
-				//ft_printf("#%d - %s top distance A:%d#\n", (ps->a_size / 2), ps->op_a, ps->n_op_a);
-				//ft_printf("#%d - %s top distance B:%d#\n", (ps->b_size / 2), //ps->op_b, ps->n_op_b);
-				//ft_printf("  custo total da operação: %d\n", ps->n_op_a + ps->n_op_b);
-
-			b_node = b_node->next;
-			i++;
+			count_how_many_rotations_stack_b_needs_until_b_node_arrive_top(ps);
+			c_r_a_needs_when_execute_pa_b_first_node_fits_a_k_sorted(ps);
+			keep_lower_sum_of_n_op_a_and_b(ps);
+			ps->b_node = ps->b_node->next;
 		}
-//////////////////////////////////////////////////////////////////////////////
-		//ft_printf("\nmenor custo: %d\n\n", ps->tmp_lower_n_op_a_b);
-
-		//ft_printf("\n\nANTES ******************************************************\n");
-		//ft_dll_printv(ps->a, "A");
-		//ft_printf("\n\n\n");
-		//ft_dll_printv(ps->b, "B");
-//exit(0);
-
-		//5-> Executa as operações de acordo com os calculos realizados:
-		//ft_printf("\n\n##%d##\n\n", ps->tmp_n_op_a);
-		//ft_printf("\n\n##%d##\n\n", ps->n_op_a);
-
-		//if (z == 5)
-		//	exit(0);
-
-		int n_ops_a;
-		int n_ops_b;
-
-		n_ops_a = ps->n_op_a;
-		n_ops_b = ps->n_op_b;
-
-		while (n_ops_a > 0 || n_ops_b > 0)
-		{
-			if (n_ops_a-- > 0)
-			{
-				if (ft_strncmp(ps->op_a, "ra", 2) == 0)
-					ra(ps);
-				else
-					rra(ps);
-			}
-			if (n_ops_b-- > 0)
-			{
-				if (ft_strncmp(ps->op_b, "rb", 2) == 0)
-					rb(ps);
-				else
-					rrb(ps);
-			}
-		}
-		pa(ps);
-		// ft_printf("\n\nDEPOIS ******************************************************\n");
-		// ft_dll_printv(ps->a, "A");
-		// ft_printf("\n\n\n");
-		// ft_dll_printv(ps->b, "B");
-		//exit(0);
+		execute_operations(ps);
 	}
 }
 
@@ -222,27 +161,6 @@ void	bring_smaller_to_top(t_push_swap *ps)
 void	five_hundred(t_push_swap *ps)
 {
 	move_to_b_divide_two_groups(ps);
-
-
-	//ft_dll_printv(ps->a, "A");
-	//if (0)
 	move_to_a(ps);
-		bring_smaller_to_top(ps);
-
-
-	//ft_dll_printv(ps->b, "B");
-
-
+	bring_smaller_to_top(ps);
 }
-
-
-/* 3-> Calcular 2 coisas:
-
-			Primeiro) Quantas rotações eu preciso fazer na Stack B para um node específico chegar até o topo. E qual operação chega mais rápido RB ou RRB.
-
-			Segundo) Quantas rotações eu preciso fazer na Stack A para que o primeiro NODE:
-				- TENHA UM VALOR MAIOR QUE O PRIMEIRO NODE DE B
-				- O ÚLTIMO NODE DA STACK A SEJA MENOR QUE O PRIMEIRO NODE
-				DA STACK B.
-				- QUANDO NÓS DERMOS PUSH DE B PARA A, o PRIMEIRO NODE DE B, SE ENCAIXARÁ CERTINHO, ANTES DE UM NÚMERO MAIOR QUE ELE, E DEPOIS DE UM NÚMERO MENOR QUE ELE.
-	    */
