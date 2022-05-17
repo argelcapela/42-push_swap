@@ -53,8 +53,8 @@ $ make bonus
 
 # 6) Executar o bônus
 # O Arquivo checker recebe como argumento a sequência de números desordenada, depois ele
-# vai pedir que você digite as operações de pilha que ordenam essa sequência seguido de ENTER, assim que terminar, 
-# pressione CTRL + D, logo o resultado será impresso. 
+# vai pedir que você digite as operações de pilha que ordenam essa sequência seguido de ENTER, 
+# assim que terminar, pressione CTRL + D, logo o resultado será impresso. 
 # Se essas operações digitadas ordenam a lista de números o resultado será OK, caso contrário será KO. 
 $ ./checker 5 4 3 2 1
 $ sa
