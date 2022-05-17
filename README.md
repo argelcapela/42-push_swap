@@ -45,17 +45,25 @@ $ make
 
 # 4) Executar o mandatório 
 # Insira uma sequência de números aleatórios e você recebera uma sequência
-# de instruções de pilha, que ordenará essa lista de números inserida.
+# de operações de pilha(sa,sb,ss,ra,rb,rr,rrr,rra,rrb,pa,pb), que ordenará essa lista de números.
 $ ./push_swap 5 3 6 9 6 7 5 8 7 5 7 6
 	
 # 5) Compilar o bônus
 $ make bonus
 
 # 6) Executar o bônus
-# O Arquivo checker recebe como parâmetro a sequência de números desordenada, 
-# e como input recebe as instruções de Pilha que deveriam
-# ordená-las. Retorna OK se essa sequência de instruções recebida, 
-# realmente ordena a sequência de números.
+# O Arquivo checker recebe como argumento a sequência de números desordenada, depois ele
+# vai pedir que você digite as operações de pilha que ordenam essa sequência seguido de ENTER, assim que terminar, 
+# pressione CTRL + D, logo o resultado será impresso. 
+# Se essas operações digitadas ordenam a lista de números o resultado será OK, caso contrário será KO. 
+$ ./checker 5 4 3 2 1
+$ sa
+$ CTRL + D
+$ KO
+
+# Você também pode usar o PIPE para redirecionar a saída do PUSH_SWAP para a entrada do checker,
+# assim não será necessário digitar as operações manualmente. O checker simplesmente dirá se as
+# operações que o PUSH_SWAP imprimiu, ordenam (OK) ou não (KO) a sequência de números.
 $ ARG="5 3 6 9 6 7 5 8 7 5 7 6" && ./push_swap 5 3 6 9 6 7 5 8 7 5 7 6 | ./checker $ARG
 	
 ```
@@ -65,12 +73,7 @@ $ ARG="5 3 6 9 6 7 5 8 7 5 7 6" && ./push_swap 5 3 6 9 6 7 5 8 7 5 7 6 | ./check
 <div class="col-12">
     
 # 📌 O que eu aprendi e como foi desenvolvido esse projeto?<br>
-<br>
-<i>Fique a vontade para conferir um artigo muito especial, onde eu apresento minhas experiências com o projeto PUSH_SWAP,
-clicando no icone bonitinho abaixo.</i><br><br>
-<a href="https://www.notion.so/argelcapela/Dominando-PUSH_SWAP-Em-Breve-8325e03aa21349ac9aee8ae3c3aaac83" target="_BLANK"><img src="https://i.imgur.com/szLYh3D.png" alt="conferir estudo"></a>
-<br>
-<br>
+EM BREVE
 <br>
 <div class="col-12">
 	
@@ -101,7 +104,7 @@ clicando no icone bonitinho abaixo.</i><br><br>
 <div class="col-12">
 	
 # 📋 Nota:<br>
-<img src="https://i.imgur.com/jJ301iE.png" width="150px" height="150px" alt="nota fdf">
+<img src="https://i.imgur.com/wcWQXK1.png" width="150px" height="150px" alt="nota fdf">
 </div>
 	
 <br>
@@ -116,17 +119,3 @@ clicando no icone bonitinho abaixo.</i><br><br>
 <div class="col-12">
 <p>Não esqueça de dar um ⭐️ se você gostou, ou se esse repositório te ajudou de alguma maneira, isso irá me ajudar muito! Obrigado, você é top! 😁👍</p>
 </div>
-	
-
-<br><br>
-	
- <!--
-<i>Por favor, clique na imagem a seguir para abrir um vídeo de demonstração do meu 42-pipex</i>
-<br><br>
-
-<a href="https://youtu.be/WoeL3G3pUDs" class="hide-on-portfolio" target="_BLANK"><img src="https://i.imgur.com/ehvexOI.png" width="100%"></a>
-
-<br><br>
-
-
---->  
