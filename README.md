@@ -8,7 +8,7 @@
 <div align="center">
 	<p><i>"Niguém baterá tão forte quanto a vida. Porém, não se trata de quão forte pode bater, se trata de quão forte pode ser atingido e continuar seguindo em frente. É assim que a vitória é conquistada."</i><br><b>Rocky Balboa</b></p>
 <br><br>
-	<img src="https://i.imgur.com/zbLrn0i.jpg" width="250px">
+	<img src="https://i.imgur.com/ZmUcvvB.jpg" width="250px">
 </div>
 <br><br>
 </div>
